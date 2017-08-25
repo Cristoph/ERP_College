@@ -18,5 +18,12 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^common/', include('common.urls', namespace='common')),
 ]
+
+# ModuleCommon
+urlpatterns += [
+    url(r'^module-common/', include('ModuleCommon.urls', namespace='ModuleCommon')),
+]
+
+
+
