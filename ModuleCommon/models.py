@@ -13,16 +13,16 @@ class Person(models.Model):
         abstract = True
 
 
-class Student(Person):
-    attorney = models.ForeignKey(Attorney, null=False, blank=True, on_delete=models.CASCADE)
-    # level=models.CharField()
-
+class Attorney(Person):
+    # custom fields
     def __str__(self):
         return self.rut
 
 
-class Attorney(Person):
-    # custom fields
+class Student(Person):
+    attorney = models.ForeignKey(Attorney, null=False, blank=True, on_delete=models.CASCADE)
+    # level=models.CharField()
+
     def __str__(self):
         return self.rut
 
