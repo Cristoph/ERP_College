@@ -1,6 +1,4 @@
 venv
-staticfiles
-media
 *.so
 *.egg
 *.egg-info
