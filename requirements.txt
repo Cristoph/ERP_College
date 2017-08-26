@@ -1,8 +1,11 @@
 dj-database-url==0.4.2
 Django==1.11.4
+django-extensions==1.9.0
 django-tastypie==0.14.0
 gunicorn==19.7.1
 psycopg2==2.7.3
+pydotplus==2.0.2
+pyparsing==2.2.0
 python-dateutil==2.6.1
 python-mimeparse==1.6.0
 pytz==2017.2
