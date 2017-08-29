@@ -4,6 +4,7 @@ body{
     font-size: 0.9rem;
     color: #292b2c;
     background-color: #f5f8fa;
+    font-family: 'Lato', sans-serif;
 }
 
 
@@ -25,8 +26,6 @@ nav{
 
 .card-img-top{
     height: 120px;
-    /*width: 100%; */
-    /*display: block;*/
 }
 
 .profile {
@@ -37,6 +36,12 @@ nav{
     background-color: white;
 }
 
+.card-title{
+    margin-bottom: .4rem;
+    font-weight: 700;
+}
 
-/*3b4552*/
-/*2b78c2*/
+.card-text{
+    margin-bottom: .1rem;
+}
+
