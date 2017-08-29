@@ -47,8 +47,8 @@ INSTALLED_APPS += [
 
 
 INSTALLED_APPS += [
-    'tastypie',
-    'django_extensions',
+    # 'tastypie',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
