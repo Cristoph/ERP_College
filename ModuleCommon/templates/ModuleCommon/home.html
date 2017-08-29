@@ -1,0 +1,27 @@
+{% extends 'ModuleCommon/base.html' %}
+
+
+
+
+{% block base_content %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3">
+                {% include 'ModuleCommon/components/profile.html' %}
+            </div>
+
+            <div class="col-lg-7">
+                {% include 'ModuleCommon/components/wall.html' %}
+            </div>
+
+            <div class="col-lg-2">
+                {% include 'ModuleCommon/components/extra.html' %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock base_content %}

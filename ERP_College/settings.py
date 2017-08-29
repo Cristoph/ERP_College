@@ -47,7 +47,7 @@ INSTALLED_APPS += [
 
 
 INSTALLED_APPS += [
-    'tastypie',
+    # 'tastypie',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +140,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 MEDIA_URL = '/media/'
+
+
+# Auth
+
+

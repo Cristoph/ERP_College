@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from ModuleCommon.urls import api
+# from ModuleCommon.urls import api
 
 
 urlpatterns = [
@@ -19,14 +19,14 @@ urlpatterns += [
 
 # API urls
 urlpatterns += [
-    url(r'^api/', include(api.urls))
+    # url(r'^api/', include(api.urls))
 ]
 
 
 # ModuleCommon
-# urlpatterns += [
-#     url(r'^module-common/', include('ModuleCommon.urls', namespace='ModuleCommon')),
-# ]
-#
+urlpatterns += [
+    url(r'^$', include('ModuleCommon.urls', namespace='ModuleCommon')),
+]
+
 
 

@@ -1,0 +1,42 @@
+/* ========== common ==========*/
+
+body{
+    font-size: 0.9rem;
+    color: #292b2c;
+    background-color: #f5f8fa;
+}
+
+
+
+/* ========== navbar ==========*/
+nav{
+    /*margin-bottom: 1.2rem;*/
+}
+
+.navbar{
+    background-color: #2b78c2;
+    padding: .1rem 1rem;
+}
+
+
+
+
+/* ========== profile ==========*/
+
+.card-img-top{
+    height: 120px;
+    /*width: 100%; */
+    /*display: block;*/
+}
+
+.profile {
+    max-width: 100px;
+    margin-top: -70px;
+    margin-bottom: 5px;
+    border: 3px solid #fff;
+    background-color: white;
+}
+
+
+/*3b4552*/
+/*2b78c2*/
