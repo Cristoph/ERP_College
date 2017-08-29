@@ -7,11 +7,15 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 
 
 /* ========== navbar ==========*/
 nav{
     /*margin-bottom: 1.2rem;*/
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .navbar{
@@ -43,5 +47,26 @@ nav{
 
 .card-text{
     margin-bottom: .1rem;
+}
+
+
+/* ========== wall ==========*/
+
+.wall div.card{
+    margin-bottom: 1rem;
+}
+
+.wall div.card-body{
+    padding: .8rem;
+}
+
+.img-wall{
+    width: 60px;
+}
+
+.time-wall{
+    color: rgba(100, 109, 115, 0.81);
+    font-size: 90%;
+    font-weight: normal;
 }
 
