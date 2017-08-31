@@ -25,7 +25,7 @@ urlpatterns += [
 
 # ModuleCommon
 urlpatterns += [
-    url(r'^$', include('ModuleCommon.urls', namespace='ModuleCommon')),
+    url(r'', include('ModuleCommon.urls', namespace='ModuleCommon')),
 ]
 # Login
 
