@@ -25,8 +25,18 @@ urlpatterns += [
 
 # ModuleCommon
 urlpatterns += [
-    url(r'', include('ModuleCommon.urls', namespace='ModuleCommon')),
+    url(r'^', include('ModuleCommon.urls', namespace='module_common')),
 ]
+
+# ModuleStudent
+urlpatterns += [
+    url(r'^student/', include('ModuleStudent.urls', namespace='module_student')),
+]
+
+
+
+
+
 # Login
 
 from django.shortcuts import render

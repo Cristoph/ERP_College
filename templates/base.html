@@ -23,9 +23,17 @@
        {% include 'navbar.html' %}
     </nav>
 
-    <div>
-        {% block base_content %}
-        {% endblock base_content %}
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-2">
+                {% include 'components/profile.html' %}
+                {% include 'components/menu.html' %}
+            </div>
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
     </div>
 
     <footer>

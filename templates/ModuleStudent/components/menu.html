@@ -1,13 +1,14 @@
-{% url 'ModuleCommon:common-home' as common_home_url %}
-{#{% url 'ModuleCommon:common-home' as common_home_url %}#}
-{#{% url 'ModuleCommon:common-home' as common_home_url %}#}
-{#{% url 'ModuleCommon:common-home' as common_home_url %}#}
-{#{% url 'ModuleCommon:common-home' as common_home_url %}#}
-{#{% url 'ModuleCommon:common-home' as common_home_url %}#}
+{% url 'module_common:common-home' as common_home_url %}
+{% url 'module_student:student-qualifications' as qualifications_url %}
+
+
+
+
+
 
 <div class="menu">
     <div class="card card-menu {% if request.path == common_home_url %}active{% endif %}">
-        <a href="{% url 'ModuleCommon:common-home' %}">
+        <a href="{% url 'module_common:common-home' %}">
             <div class="card-body row">
                 <div class="col-lg-3">
                     <i class="material-icons md-2x">view_quilt</i>
@@ -21,6 +22,19 @@
 
     <div class="card card-menu">
         <a href="">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">event</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Mi Horario</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == qualifications_url %}active{% endif %}">
+        <a href="{% url 'module_student:student-qualifications' %}">
             <div class="card-body row">
                 <div class="col-lg-3">
                     <i class="material-icons md-2x">assignment</i>
@@ -45,18 +59,7 @@
         </a>
     </div>
 
-    <div class="card card-menu">
-        <a href="">
-            <div class="card-body row">
-                <div class="col-lg-3">
-                    <i class="material-icons md-2x">event</i>
-                </div>
-                <div class="col-lg-9">
-                    <p><strong>Mi Horario</strong></p>
-                </div>
-            </div>
-        </a>
-    </div>
+
 
 {#    if apoderado habilitar anotaciones#}
 
