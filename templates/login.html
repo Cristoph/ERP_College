@@ -1,37 +1,56 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
 
 {% block login_content %}
-<div class="container" style="background-color: #F5F8FA">
-    <div class="row">
-        <div class="col-md-4">
+<div class="container">
+    <div class="row justify-content-center">
 
-        </div>
-        <div class="col-md-4">
-            <form class="form-signin" method="post">
-                {% csrf_token %}
+        <div class="col-lg-4 card-form">
+            <div class="card">
+                <div class="card-body">
 
-                <h2 class="form-signin-heading">Por favor iniciar sesion</h2>
-                <div style="padding-bottom: 7%">
-                    <p>Ingrese usuario</p>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="RUT" required="" autofocus="">
-                </div>
-                <div style="padding-bottom: 7%">
-                    <p>Contraseña</p>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
-    {#                <div class="checkbox">#}
-    {#                  <label>#}
-    {#                    <input type="checkbox" value=""> Recordar?#}
-    {#                  </label>#}
-    {#                </div>#}
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+                    <form class="form-signin" method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <h4 class="text-center">ERP College</h4>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="username">Rut</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <div class="input-group-addon"><i class="material-icons">person</i></div>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="RUT" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="password">Contraseña</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <div class="input-group-addon"><i class="material-icons">lock</i></div>
+                                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+                        </div>
+
+
+
             </form>
+
+
+                </div>
+            </div>
+
+
+
         </div>
 
 
-        <div class="col-md-4">
-
-        </div>
     </div>
 </div>
 {% endblock login_content %}

@@ -36,10 +36,9 @@ nav{
 }
 
 .navbar{
-    background-color: #2b78c2;
+    background-color: #2B78C2;
     padding: .1rem 1rem;
 }
-
 
 
 
@@ -87,7 +86,7 @@ nav{
     font-weight: normal;
 }
 
-/* ========== wall ==========*/
+/* ========== menu ==========*/
 .menu {
     margin-top: 2rem;
 }
@@ -114,4 +113,21 @@ nav{
 }
 .card-menu.active .material-icons, .card-menu.active p{
     color: white;
+}
+
+/* ========== form ==========*/
+
+.card-form{
+    margin-top: 5rem;
+}
+
+
+/* ========== btn ==========*/
+
+.btn-primary{
+    background-color: #2B78C2;
+}
+
+.btn-primary:focus, .btn-primary:hover{
+    background-color: #004fa5;
 }
