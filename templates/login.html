@@ -1,34 +1,55 @@
-{% extends 'ModuleCommon/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block base_content %}
-<div class="container" style="background-color: #F5F8FA">
-<div class="row">
-    <div class="col-md-4">
 
-    </div>
-    <div class="col-md-4">
-        <form class="form-signin">
-            <h2 class="form-signin-heading">Por favor iniciar sesion</h2>
-            <div style="padding-bottom: 7%">
-                <p>Ingrese usuario</p>
-                <input type="text" id="user" class="form-control" placeholder="Usuario" required="" autofocus="">
-            </div>
-            <div style="padding-bottom: 7%">
-                <p>Contraseña</p>
-                <input type="password" id="Password" class="form-control" placeholder="Contraseña" required="">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value=""> Recordar?
-                  </label>
+
+{% block login_content %}
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-4 card-form">
+            <div class="card">
+                <div class="card-body">
+
+                    <form class="form-signin" method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <h4 class="text-center">ERP College</h4>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="username">Rut</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <div class="input-group-addon"><i class="material-icons">person</i></div>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="RUT" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="password">Contraseña</label>
+                            <div class="input-group mb-2 mb-sm-0">
+                                <div class="input-group-addon"><i class="material-icons">lock</i></div>
+                                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+                        </div>
+
+                    </form>
+
                 </div>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
-        </form>
+        </div><!--col-->
+    </div><!--row-->
+
+    <div class="row justify-content-center">
+        <div class="col-lg-4 div-help">
+            <p><i class="material-icons">account_circle</i>Alumno: 11111111-1 alumno123</p>
+        </div>
     </div>
 
-
-    <div class="col-md-4">
-
-    </div>
 </div>
-{% endblock base_content %}
+{% endblock login_content %}

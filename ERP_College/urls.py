@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-# from ModuleCommon.urls import api
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -17,30 +17,28 @@ urlpatterns += [
     url(r'^admin/', admin.site.urls),
 ]
 
-# API urls
+# Basic Login
 urlpatterns += [
-    # url(r'^api/', include(api.urls))
+    url(r'^login/$', auth_views.login,{'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
 ]
+
+
+# API urls
+# urlpatterns += [
+#     url(r'^api/', include(api.urls))
+# ]
 
 
 # ModuleCommon
 urlpatterns += [
-    url(r'^$', include('ModuleCommon.urls', namespace='ModuleCommon')),
+    url(r'^', include('ModuleCommon.urls', namespace='module_common')),
 ]
-# Login
 
-from django.shortcuts import render
-from django.views import View
 
-class LoginView(View):
-    template = 'login.html'
-
-    def get(self, request):
-
-        return render(request, self.template, locals())
-
+# ModuleStudent
 urlpatterns += [
-    url(r'^login', LoginView.as_view(), name='login'),
+    url(r'^student/', include('ModuleStudent.urls', namespace='module_student')),
 ]
 
 class AttorneyView(View):
