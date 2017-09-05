@@ -121,7 +121,19 @@ nav{
     margin-top: 5rem;
 }
 
+.div-help{
+    margin-top: 3rem;
+    color: #596b7d;
+    font-size: 14px;
+}
 
+.div-help p{
+    margin-bottom: 0;
+}
+
+.div-help p i{
+    vertical-align: middle;
+}
 /* ========== btn ==========*/
 
 .btn-primary{
