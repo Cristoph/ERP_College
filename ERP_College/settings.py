@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import dj_database_url
+from django.urls import reverse_lazy
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,7 +49,8 @@ INSTALLED_APPS += [
 
 INSTALLED_APPS += [
     # 'tastypie',
-    'django_extensions'
+    'django_extensions',
+    'stronghold',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'stronghold.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'ERP_College.urls'
@@ -144,3 +147,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 MEDIA_URL = '/media/'
+
+# LOGIN
+STRONGHOLD_DEFAULTS = True
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/'
+
