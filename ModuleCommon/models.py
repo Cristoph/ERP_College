@@ -6,16 +6,13 @@ class UserProfile(models.Model):
     """model to represent additional information about users"""
     user = models.OneToOneField(User, related_name='profile')
     # The rest is completely
+    gender = models.CharField(max_length=1, choices=(('H','Hombre'),('M','Mujer')), blank=True, null=True)
     date_of_birth = models.DateField()
     address = models.CharField(max_length=255, blank=True, null=True)
-    # Comuna?, etc?
+    phone = models.PositiveIntegerField(blank=True, null=True)
 
-
-
-#profile = request.user.profile
-
-
-
+    def __str__(self):
+        return self.user
 
 
 
