@@ -43,3 +43,24 @@ urlpatterns += [
     url(r'^login', LoginView.as_view(), name='login'),
 ]
 
+class AttorneyView(View):
+    template = 'attorney/attorney.html'
+
+    def get(self, request):
+
+        return render(request, self.template, locals())
+
+urlpatterns += [
+    url(r'^attorney', AttorneyView.as_view(), name='attorney'),
+]
+
+class ReportView(View):
+    template = 'report/report.html'
+
+    def get(self, request):
+
+        return render(request, self.template, locals())
+
+urlpatterns += [
+    url(r'^report', ReportView.as_view(), name='report'),
+]
