@@ -1,0 +1,620 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block content %}
+    {# siempre lg-7#}
+
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Reporte de notas.</h2>
+            </div>
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3" align="right">
+                <button id="print_btn" class="btn btn-primary"><i class="fa fa-print"></i> Imprimir</button>
+            </div>
+        </div>
+<!--        <div class="wall">
+            <div class="card">
+                <div class="card-body row" >   -->
+                    <style type="text/css">
+                        .papel {
+                            -webkit-box-shadow: 00px 0px 50px #888;
+                            -moz-box-shadow: 0px 0px 50px #888;
+                            box-shadow: 0px 0px 50px #888;
+                            width: 800px;
+                            height: 1200px;
+                            padding-top: 20px;
+                            padding-bottom: 30px;
+                            padding-left: 40px;
+                            padding-right: 40px;
+                            margin-top: 50px;
+                            margin-bottom: 40px;
+                            background-color: #ffffff;
+                        }
+                    </style>
+                    <div class="papel" id="printArea" style="">
+                        <style>
+                           /* div {
+                                border: #ff000f 1px solid;
+                            }
+                            table, td, tr {
+                                border: blue 1px solid;
+                            } */
+                            .content-report{
+                                margin-top: 50px;
+                            }
+                        </style>
+                        <div class="content-report">
+                            <table width="100%" cellspacing="1" align="center" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="95%" cellspacing="1" align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <table width="100%" border="0" cellspacing="2">
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <td align="center" rowspan="2" width="15%"><img border="0" src="" alt="Logo" width="100px">
+
+                                                                    </td>
+                                                                    <td width="70%" align="center" valign="bottom">
+                                                                        <font size="2"></font>
+                                                                    </td>
+
+                                                                  <td width="15%" rowspan="2" align="center">
+
+                                                                  </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" valign="top" style="font-size: 14pt">
+                                                                        Resumen de apoderados 2017<br>
+                                                                        1° Semestre
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <br>
+                                                        <table width="100%" border="0" cellspacing="2">
+
+                                                            <tbody align="left">
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>Alumno:&nbsp;</b>
+                                                                    </td>
+                                                                    <td>
+                                                                        <b>Cristopher Gonzalez</b>
+                                                                    </td>
+                                                                    <td>
+                                                                        <b>Run:&nbsp;</b>
+                                                                    </td>
+                                                                    <td>11.111.111-1</td>
+
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>Profesor Jefe: </b>
+                                                                    </td>
+                                                                    <td>
+                                                                        Octavio Cubillos
+                                                                    </td>
+                                                                    <td>
+
+                                                                    </td>
+                                                                    <td>
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>Curso:</b>
+                                                                    </td>
+                                                                    <td>
+                                                                        Sexto Año - A
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <b>Matrícula:</b>
+                                                                    </td>
+                                                                    <td>
+                                                                        118
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        Año Escolar:
+                                                                    </td>
+                                                                    <td colspan="3" >
+                                                                        <b>2017</b>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <table width="100%" cellspacing="1" align="center" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="95%" cellspacing="1" align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <table width="100%" border="0" cellspacing="0" class=""  >
+                                                                <tbody style="border: #000000 1px solid">
+                                                                    <tr style="border: #000000 1px solid" align="center">
+                                                                        <th align="center">
+                                                                            <b>Asignatura</b>
+                                                                        </th>
+
+                                                                        <th align="center">
+                                                                            <b>N1</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N2</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N3</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N4</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N5</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N6</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N7</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N8</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N9</b>
+                                                                        </th>
+                                                                        <th align="center">
+                                                                            <b>N10</b>
+                                                                        </th>
+                                                                        <th>
+                                                                            PS1
+                                                                        </th>
+                                                                        <th>
+                                                                            <b>P.F</b>
+                                                                        </th>
+                                                                    </tr  >
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            &nbsp;Lenguaje y comunicación
+                                                                        </td>
+                                                                        <td>
+                                                                           4.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.0
+                                                                        </td>
+                                                                        <td>
+                                                                           3.6
+                                                                        </td>
+                                                                        <td>
+                                                                             2.5
+                                                                        </td>
+                                                                        <td>
+                                                                           5.6
+                                                                        </td>
+                                                                        <td>
+                                                                           3.7
+                                                                        </td>
+                                                                        <td>
+                                                                           5.5
+                                                                        </td>
+                                                                        <td>
+                                                                           6.6
+                                                                        </td>
+                                                                        <td>
+                                                                             6.0
+                                                                        </td>
+                                                                        <td>
+                                                                           5.4
+                                                                        </td>
+                                                                        <td>
+                                                                            4.5
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr bgcolor="#CEE1FB" style="border: #000000 1px solid">
+                                                                        <!--<td colspan="" align="right"><B>Promedio General  :</B></td>-->
+                                                                        <td>
+                                                                            <b>&nbsp;Promedio General Alumno </b>
+                                                                        </td>
+                                                                        <td colspan="10">
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>4.9</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+    <!--        </div>
+
+        </div>
+    </div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#print_btn').click(function () {
+          $('#printArea').printThis({});
+        });
+      });
+</script>
+{% endblock content %}

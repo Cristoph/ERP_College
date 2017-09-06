@@ -10,3 +10,12 @@ class StudentQualifications(View):
 
         return render(request, self.template, locals())
 
+
+class StudentReport(View):
+    template = 'ModuleStudent/report.html'
+
+    def get(self, request):
+
+
+        return render(request, self.template, locals())
+
