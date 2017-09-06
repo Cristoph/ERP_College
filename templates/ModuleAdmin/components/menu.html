@@ -1,0 +1,75 @@
+{% url 'module_common:common-home'     as common_home_url    %}
+
+{% url 'module_admin:grades'   as grades_url   %}
+{% url 'module_admin:subjects' as subjects_url %}
+{% url 'module_admin:teachers' as teachers_url %}
+{% url 'module_admin:students' as students_url %}
+
+
+<div class="menu">
+    <div class="card card-menu {% if request.path == common_home_url %}active{% endif %}">
+        <a href="{% url 'module_common:common-home' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">view_quilt</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Mi Muro</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == grades_url %}active{% endif %}">
+        <a href="{% url 'module_admin:grades' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">event</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Cursos</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == subjects_url %}active{% endif %}">
+        <a href="{% url 'module_admin:subjects' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">assignment</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Asignaturas</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == teachers_url %}active{% endif %}">
+        <a href="{% url 'module_admin:teachers' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons">account_circle</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Docentes</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == students_url %}active{% endif %}">
+        <a href="{% url 'module_admin:students' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">face</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Alumnos</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>

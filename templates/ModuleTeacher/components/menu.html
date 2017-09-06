@@ -1,0 +1,75 @@
+{% url 'module_common:common-home'     as common_home_url    %}
+
+{% url 'module_teacher:schedules'      as schedules_url      %}
+{% url 'module_teacher:qualifications' as qualifications_url %}
+{% url 'module_teacher:assistances'    as assistances_url    %}
+{% url 'module_teacher:annotations'    as annotations_url    %}
+
+
+<div class="menu">
+    <div class="card card-menu {% if request.path == common_home_url %}active{% endif %}">
+        <a href="{% url 'module_common:common-home' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">view_quilt</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Mi Muro</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == schedules_url %}active{% endif %}">
+        <a href="{% url 'module_teacher:schedules' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">event</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Mi Horario</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == qualifications_url %}active{% endif %}">
+        <a href="{% url 'module_teacher:qualifications' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">assignment</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Notas</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == assistances_url %}active{% endif %}">
+        <a href="{% url 'module_teacher:assistances' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">assignment_turned_in</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Asistencia</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card card-menu {% if request.path == annotations_url %}active{% endif %}">
+        <a href="{% url 'module_teacher:annotations' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">receipt</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Anotaciones</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>

@@ -6,11 +6,12 @@
     <div class="card-body text-center">
         <img class="profile rounded-circle mx-auto d-block" src="{% static 'img/profile/user_m.png' %}">
 
-        <h6 class="card-title">Cristopher Alejandro</h6>
-        <h6 class="card-title mb-4">Gonzalez Villalon</h6>
+        <h6 class="card-title">{{ user.first_name }}</h6>
+        <h6 class="card-title mb-4">{{ user.last_name }}</h6>
 
         <p class="card-text">{{ user.groups.all.0.name }}</p>
-        <p class="card-text">4° Medio A</p>
+{#        TODO: si es alumno el curos si es profesor el ramo que ejerce??#}
+        <p class="card-text">texto a definir</p>
 
   </div>
 </div>

@@ -40,3 +40,16 @@ urlpatterns += [
 urlpatterns += [
     url(r'^student/', include('ModuleStudent.urls', namespace='module_student')),
 ]
+<<<<<<< HEAD
+=======
+
+# ModuleTeacher
+urlpatterns += [
+    url(r'^teacher/', include('ModuleTeacher.urls', namespace='module_teacher')),
+]
+
+# ModuleAdmin
+urlpatterns += [
+    url(r'^administrator/', include('ModuleAdmin.urls', namespace='module_admin')),
+]
+>>>>>>> 42520e4384bdb349cd96939480c9bd175a6af8f0
