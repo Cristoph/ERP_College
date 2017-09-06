@@ -41,3 +41,8 @@ urlpatterns += [
     url(r'^student/', include('ModuleStudent.urls', namespace='module_student')),
 ]
 
+# ModuleTeacher
+urlpatterns += [
+    url(r'^teacher/', include('ModuleTeacher.urls', namespace='module_teacher')),
+]
+

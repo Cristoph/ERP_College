@@ -3,7 +3,9 @@
     {% include 'ModuleStudent/components/menu.html' %}
 {% endif %}
 
-
+{% if user.groups.all.0.name == 'Docente' %}
+    {% include 'ModuleTeacher/components/menu.html' %}
+{% endif %}
 
 {#if asdasdas#}
 {#{% include 'ModuleStudent/menu.html' %}#}
