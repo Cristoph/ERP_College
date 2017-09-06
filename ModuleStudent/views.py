@@ -9,3 +9,4 @@ class StudentQualifications(View):
 
 
         return render(request, self.template, locals())
+
