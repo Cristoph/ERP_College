@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark mb-4 justify-content-between">
     <a class="navbar-brand" href="#">Colegio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+
+{#    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#    </button>#}
+
 
 {#    <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
 {#        <ul class="navbar-nav mr-auto">#}
@@ -21,4 +23,6 @@
 {#      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
 {#    </form>#}
 {#  </div>#}
+
+    <a href="{% url 'logout' %}"><i class="material-icons material-icons-white">exit_to_app</i></a>
 </nav>

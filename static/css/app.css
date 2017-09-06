@@ -19,6 +19,10 @@ body{
 .material-icons.md-48 { font-size: 48px; }
 .material-icons.md-2x { font-size: 1.6rem; }
 
+.material-icons-white{
+    color: white;
+    text-decoration: none;
+}
 
 a {
     color: #2B78C2;
