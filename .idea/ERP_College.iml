@@ -26,6 +26,12 @@
         <option value="$MODULE_DIR$/templates/components" />
         <option value="$MODULE_DIR$/templates/ModuleCommon" />
         <option value="$MODULE_DIR$/templates/ModuleStudent" />
+        <option value="$MODULE_DIR$/templates/ModuleAdmin" />
+        <option value="$MODULE_DIR$/templates/ModuleLibrary" />
+        <option value="$MODULE_DIR$/templates/ModuleStudent/components" />
+        <option value="$MODULE_DIR$/templates/ModuleTeacher" />
+        <option value="$MODULE_DIR$/templates/ModuleTeacher/components" />
+        <option value="$MODULE_DIR$/templates/ModuleAdmin/components" />
       </list>
     </option>
   </component>

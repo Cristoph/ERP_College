@@ -7,9 +7,6 @@
     {% include 'ModuleTeacher/components/menu.html' %}
 {% endif %}
 
-{#if asdasdas#}
-{#{% include 'ModuleStudent/menu.html' %}#}
-{#if adada#}
-{#{% include 'ModuleStudent/menu.html' %}#}
-
-
+{% if user.groups.all.0.name == 'Administrativo' %}
+    {% include 'ModuleAdmin/components/menu.html' %}
+{% endif %}

@@ -46,3 +46,7 @@ urlpatterns += [
     url(r'^teacher/', include('ModuleTeacher.urls', namespace='module_teacher')),
 ]
 
+# ModuleAdmin
+urlpatterns += [
+    url(r'^administrator/', include('ModuleAdmin.urls', namespace='module_admin')),
+]
