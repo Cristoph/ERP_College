@@ -51,3 +51,8 @@ urlpatterns += [
 urlpatterns += [
     url(r'^administrator/', include('ModuleAdmin.urls', namespace='module_admin')),
 ]
+
+# ModuleAdmin
+urlpatterns += [
+    url(r'^reports/', include('ModuleReports.urls', namespace='module_reports')),
+]
