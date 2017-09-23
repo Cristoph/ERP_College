@@ -32,3 +32,19 @@ class AdminStudents(View):
     def get(self, request):
         return render(request, self.template, locals())
 
+
+class AdminAdmission(View):
+    template = 'ModuleAdmin/admissionstudents.html'
+
+    def get(self, request, *args, **kwargs):
+        if kwargs['value']=='students':
+            self.template = 'ModuleAdmin/admissionstudents.html'
+
+        if kwargs['value']=='attorney':
+            self.template = 'ModuleAdmin/admissionattorney.html'
+
+        if kwargs['value']=='enrollment':
+            self.template = 'ModuleAdmin/admissionenrollment.html'
+
+        return render(request, self.template, locals())
+

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {# siempre lg-7#}
+
+    <div class="col-lg-7">
+        <h1>admin Attorney</h1>
+        <div class="wall">
+
+        <div class="card">
+            <div class="card-body row">
+
+                <div class="col-lg-2">
+                    <img class="img-wall img-fluid rounded-circle mx-auto d-block" src="https://image.flaticon.com/icons/png/512/327/327126.png">
+                </div>
+
+                <div class="col-lg-10">
+                   <h4>Datos del matricula.</h4>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Fecha de matricula :</label>
+                            <input type="date" name="" maxlength="12" value="2017-09-23" class="form-control" id="" required />
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Monto matricula:</label>
+                            <select class="custom-select" style="width: 100%">
+                                <option selected>Abrir y seleccionar el monto</option>
+                                <option value="20000">$20.000</option>
+                                <option value="25000">$25.000</option>
+                                <option value="30000">$30.000</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Monto arancel:</label>
+                            <select class="custom-select" style="width: 100%">
+                                <option selected>Abrir y seleccionar el monto</option>
+                                <option value="300000">$300000</option>
+                                <option value="350000">$350000</option>
+                                <option value="400000">$400000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Total a pagar:</label>
+                            <input type="text" name="" maxlength="12" value="123456" class="form-control"  disabled />
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Monto recibido:</label>
+                            <input type="text" name="" maxlength="12" value="" placeholder="0" class="form-control"  required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Total restante:</label>
+                            <input type="text" name="" maxlength="12" value="123456" class="form-control" id="" disabled />
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Colegio anterior:</label>
+                            <input type="text" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. colegio Sta. Maria de los andes." required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Curso matriculado:</label>
+                            <select class="custom-select" style="width: 100%">
+                                <option selected>Abrir y seleccionar curso</option>
+                                <option value="1">1° Basico</option>
+                                <option value="2">2° Basico</option>
+                                <option value="3">3° Basico</option>
+                                <option value="4">4° Basico</option>
+                                <option value="5">5° Basico</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Celular de contacto:</label>
+                            <input type="number" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. 95432343" required />
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 3%">
+                        <div class="col-lg-12" align="right">
+                            <input type="reset" class="btn btn-secondary" value="Limpiar" >
+                            <span style="padding-right: 5%"></span>
+                            <!--<input type="submit" class="btn btn-info" value="Volver" > -->
+                            <a href="javascript:history.back()"> <button type="button" class="btn btn-info">Volver</button></a>
+                            <span style="padding-right: 5%"></span>
+                            <input type="submit" class="btn btn-primary" value="Guardar" >
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+{% endblock content %}

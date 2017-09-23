@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {# siempre lg-7#}
+
+    <div class="col-lg-7">
+        <h1>admin Attorney</h1>
+        <div class="wall">
+
+        <div class="card">
+            <div class="card-body row">
+
+                <div class="col-lg-2">
+                    <img class="img-wall img-fluid rounded-circle mx-auto d-block" src="https://www.flaticon.es/premium-icon/icons/png/512/547/547479.png">
+                </div>
+
+                <div class="col-lg-10">
+                   <h4>Datos del Apoderado.</h4>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Rut :</label>
+                            <input type="text" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. 11111111-1" required />
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Nombre:</label>
+                            <input type="text" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. Juan" required />
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Apellidos:</label>
+                            <input type="text" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. Perez Soto" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Fecha de nacimiento:</label>
+                            <input type="date" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. Juan" required />
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Sexo:</label><br>
+                                <input type="radio" name="gender" value="male" checked> Masculino<br>
+                                <input type="radio" name="gender" value="female"> Femenino
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Direccion:</label>
+                            <input type="text" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. Santo Domingo 23, santiago" required />
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>E-mail de contacto:</label>
+                            <input type="email" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. 23232343" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label>Telefono de contacto:</label>
+                            <input type="number" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. 23232343" required />
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label>Celular de contacto:</label>
+                            <input type="number" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. 95432343" required />
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 3%">
+                        <div class="col-lg-12" align="right">
+                            <input type="reset" class="btn btn-secondary" value="Limpiar" >
+                            <span style="padding-right: 5%"></span>
+                            <!--<input type="submit" class="btn btn-info" value="Volver" > -->
+                            <a href="javascript:history.back()"> <button type="button" class="btn btn-info">Volver</button></a>
+                            <span style="padding-right: 5%"></span>
+                            <!-- <input type="submit" class="btn btn-primary" value="Continuar" > -->
+                            <a href="{% url 'module_admin:admission' 'enrollment' %}"><button type="button" class="btn btn-primary">Continuar</button> </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+{% endblock content %}
