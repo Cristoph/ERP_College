@@ -4,15 +4,27 @@
     {# siempre lg-7#}
 
     <script>
-    var valor="";
-    var mostrarValor = function(x){
-        valor = valor+x.value
-        document.getElementById('apagar').innerHTML = "\n" +
-            "                            <select class=\"form-control hidden\" name=\"departament\">\n" +
-            "                                <option value=\""+valor+"\">"+valor+"</option>\n" +
-            "                            </select>" +valor+
-            ""
-    }
+
+    var suma= 0;
+    var total=0;
+    sumaValor = function (x) {
+        var costoMatricula = $("#matricula").val();
+        var costoArancel = $("#arancel").val();
+        var abono = $("#abono").val();
+        suma = parseInt(costoMatricula) + parseInt(costoArancel);
+        total = parseInt(suma) - parseInt(abono);
+
+        if (abono < 1){
+            total = suma;
+        }
+
+        document.getElementById('aPagar').innerHTML = "     <label>Total a pagar:</label>" +
+            "                        <input type=\"text\" name=\"\" maxlength=\"12\" value=\"$"+suma+"\" class=\"form-control\" disabled />"
+
+        document.getElementById('difPagar').innerHTML = "     <label>Total restante:</label>" +
+            "                        <input type=\"text\" name=\"\" maxlength=\"12\" value=\"$"+total+"\" class=\"form-control\" disabled />"
+
+    };
     </script>
 
     <div class="col-lg-7">
@@ -40,8 +52,8 @@
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label>Monto matricula:</label>
-                            <select class="custom-select" style="width: 100%">
-                                <option selected>Abrir y seleccionar el monto</option>
+                            <select class="custom-select" style="width: 100%" id="matricula" onchange="sumaValor(this);">
+                                <option selected value="0">Abrir y seleccionar el monto</option>
                                 <option value="20000">$20.000</option>
                                 <option value="25000">$25.000</option>
                                 <option value="30000">$30.000</option>
@@ -49,8 +61,8 @@
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Monto arancel:</label>
-                            <select class="custom-select" style="width: 100%">
-                                <option selected>Abrir y seleccionar el monto</option>
+                            <select class="custom-select" style="width: 100%" id="arancel" onchange="sumaValor(this);">
+                                <option selected value="0">Abrir y seleccionar el monto</option>
                                 <option value="300000">$300000</option>
                                 <option value="350000">$350000</option>
                                 <option value="400000">$400000</option>
@@ -58,19 +70,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 form-group">
+                        <div class="col-lg-6 form-group" id="aPagar" >
                             <label>Total a pagar:</label>
-                            <input type="text" name="" maxlength="12" value="123456" class="form-control"  disabled />
+                            <input type="text" name="" maxlength="12" value="$0" class="form-control" disabled />
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Monto recibido:</label>
-                            <input type="text" name="" maxlength="12" value="" placeholder="0" class="form-control"  required />
+                            <input type="text" name="" maxlength="12" placeholder="$0"  class="form-control" id="abono" onkeyup="sumaValor(this);" required />
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 form-group">
+                        <div class="col-lg-6 form-group" id="difPagar" >
                             <label>Total restante:</label>
-                            <input type="text" name="" maxlength="12" value="123456" class="form-control" id="" disabled />
+                            <input type="text" name="" maxlength="12" value="$0" class="form-control" id="" disabled />
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Colegio anterior:</label>

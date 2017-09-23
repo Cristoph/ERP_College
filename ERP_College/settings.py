@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     'ModuleCommon',
+    'ModuleAdmin',
 ]
 
 
@@ -153,5 +154,5 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 STRONGHOLD_DEFAULTS = True
 STRONGHOLD_PUBLIC_URLS = (
-    r'^/admin.*?$',
+    r'^/admin/.*?$',
 )
