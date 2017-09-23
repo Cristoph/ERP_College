@@ -3,6 +3,18 @@
 {% block content %}
     {# siempre lg-7#}
 
+    <script>
+    var valor="";
+    var mostrarValor = function(x){
+        valor = valor+x.value
+        document.getElementById('apagar').innerHTML = "\n" +
+            "                            <select class=\"form-control hidden\" name=\"departament\">\n" +
+            "                                <option value=\""+valor+"\">"+valor+"</option>\n" +
+            "                            </select>" +valor+
+            ""
+    }
+    </script>
+
     <div class="col-lg-7">
         <h1>admin Attorney</h1>
         <div class="wall">
@@ -78,8 +90,12 @@
                             </select>
                         </div>
                         <div class="col-lg-6 form-group">
-                            <label>Celular de contacto:</label>
-                            <input type="number" name="" maxlength="12" value="" class="form-control" id="" placeholder="Ej. 95432343" required />
+                            <label>Periodo de matricula:</label>
+                            <select class="custom-select" style="width: 100%">
+                                <option selected>Abrir y seleccione periodo</option>
+                                <option value="1">2017</option>
+                                <option value="2">2018</option>
+                            </select>
                         </div>
                     </div>
 
