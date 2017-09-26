@@ -1,19 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
-class UserProfile(models.Model):
-    """model to represent additional information about users"""
-    user = models.OneToOneField(User, related_name='profile')
-    # The rest is completely
-    gender = models.CharField(max_length=1, choices=(('H','Hombre'),('M','Mujer')), blank=True, null=True)
-    date_of_birth = models.DateField()
-    address = models.CharField(max_length=255, blank=True, null=True)
-    phone = models.PositiveIntegerField(blank=True, null=True)
-
-    def __str__(self):
-        return self.user
+## test api
 
 
 class Grade(models.Model):
@@ -31,11 +19,11 @@ class Person(models.Model):
     last_name = models.CharField(max_length=30, null=False)
     gender = models.CharField(max_length=20, null= False)
     address = models.CharField(max_length=100, null=False)
-    email = models.EmailField(null=False)
-    birthdate = models.DateTimeField(null=False)
-    age = models.IntegerField(null=False)
+    email = models.EmailField(null=True)
+    birthdate = models.DateField(null=False)
+    age = models.IntegerField(null=True)
     phone = models.IntegerField(null=True)
-    cellphone = models.IntegerField(null=False)
+    cellphone = models.IntegerField(null=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -75,15 +63,34 @@ class Teacher(Person):
 class Subject(models.Model):
     name = models.CharField(max_length=50, null=False)
     specialty = models.CharField(max_length=50, null=False)
+    def __str__(self):
+        return self.name
+
+
+class Teacher_Subject(models.Model):
+    subject = models.ForeignKey(Subject, null=False, blank=True, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, null=False, blank=True, on_delete=models.CASCADE)
     def __str__(self):
-        return self.name+' - '+self.teacher.first_name+' '+self.teacher.last_name
+        return self.subject.name+' - '+self.teacher.first_name+' '+self.teacher.last_name
 
 class Qualification(models.Model):
     value = models.DecimalField(max_digits=2, decimal_places=1, blank=True, null=True)
     position = models.IntegerField(null=False)
-    subject = models.ForeignKey(Subject, null=False, blank=True, on_delete=models.CASCADE)
+    teacher_subject = models.ForeignKey(Teacher_Subject, null=False, blank=True, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, null=False, blank=True, on_delete=models.CASCADE)
-    periodo = models.IntegerField(null=False)
+    period = models.IntegerField(null=False)
     def __str__(self):
         return str(self.value)
+
+class Enrollment(models.Model):
+    rode = models.IntegerField(null=False)
+    tariff = models.IntegerField(null=False)
+    monthly= models.IntegerField(null=False)
+    total= models.IntegerField(null=False)
+    remaining= models.IntegerField(null=False)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    grade = models.ForeignKey(Grade, null=False, blank=True, on_delete=models.CASCADE)
+    period = models.IntegerField(null=False)
+    student = models.ForeignKey(Student, null=False, blank=True, on_delete=models.CASCADE)
+

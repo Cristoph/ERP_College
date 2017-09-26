@@ -5,7 +5,7 @@
 {% url 'module_admin:teachers' as teachers_url %}
 {% url 'module_admin:students' as students_url %}
 {% url 'module_admin:admission' 'students' as admission_students_url %}
-{% url 'module_admin:admission' 'attorney' as admission_attorney_url  %}
+{% url 'module_admin:admission_attorney' as admission_attorney_url  %}
 {% url 'module_admin:admission' 'enrollment' as admission_enrollment_url %}
 
 
@@ -76,7 +76,7 @@
     </div>
 
     <div class="card card-menu {% if request.path == admission_students_url or request.path == admission_attorney_url or request.path == admission_enrollment_url  %}active{% endif %}">
-        <a href="{% url 'module_admin:admission' 'students' %}">
+        <a href="{% url 'module_admin:admission_attorney'%}">
             <div class="card-body row">
                 <div class="col-lg-3">
                     <i class="material-icons md-2x">note_add</i>

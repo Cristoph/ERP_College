@@ -52,6 +52,7 @@ INSTALLED_APPS += [
     # 'tastypie',
     'django_extensions',
     'stronghold',
+    'simplejson'
 ]
 
 MIDDLEWARE = [
