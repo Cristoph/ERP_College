@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from  .forms import AttorneyForm
 import  json
 import requests
+from ERP_College.settings import WEBService
 
 class AdminGrades(View):
     template = 'ModuleAdmin/grades.html'
@@ -59,12 +60,12 @@ class AdminAdmission(View):
                     '"address": "'+obj.address+'",' \
                     '"email": "'+obj.email+'",' \
                     '"birthdate": "2007-09-26",' \
-                    '"age": 17,' \
-                    '"phone": 12345,' \
-                    '"cellphone": 12345}'
+                    '"age": '+str(obj.age)+',' \
+                    '"phone": '+str(obj.phone)+',' \
+                    '"cellphone": '+str(obj.cellphone)+'}'
 
             set_data=json.loads(set_data)
-            requests.post('http://127.0.0.1:8888/api/attorney/', data=set_data)
+            requests.post(WEBService+'attorney/', data=set_data)
             #form.save()
             return redirect('module_admin:admission_student', pk=obj.rut)
         else:
