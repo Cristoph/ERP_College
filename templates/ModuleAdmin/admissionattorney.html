@@ -3,6 +3,24 @@
 {% block content %}
     {# siempre lg-7#}
 
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('#id_rut').blur(function(){
+                var rut= $("#id_rut").val();
+                window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut;
+
+            });
+        });
+        $(document).ready(function(){
+            $('#reload').click(function(){
+                var rut= $("#id_rut").val();
+                window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut;
+
+            });
+        });
+    </script>
+
     <div class="col-lg-7">
         <h1>admin Attorney</h1>
         <div class="wall">
