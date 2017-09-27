@@ -3,6 +3,24 @@
 {% block content %}
     {# siempre lg-7#}
 
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('#id_rut').blur(function(){
+                var rut= $("#id_rut").val();
+                window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut;
+
+            });
+        });
+        $(document).ready(function(){
+            $('#reload').click(function(){
+                var rut= $("#id_rut").val();
+                window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut;
+
+            });
+        });
+    </script>
+
     <div class="col-lg-7">
         <h1>admin Attorney</h1>
         <div class="wall">
@@ -20,59 +38,84 @@
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <label>Rut :</label>
-                                    <input type="text" name="rut" required id="id_rut" class="form-control" maxlength="10" />                            </div>
-                                <div class="col-lg-6">
+                                    <input type="text" name="rut" value="{{ rut }}" hidden required class="form-control" maxlength="10" />
 
+                                    {% if data.rut %}
+                                        <input type="text" name="rut" value="{{ data.rut }}" disabled required id="id_rut" class="form-control" maxlength="10" />
+                                    {% else %}
+                                        <input type="text" name="rut" value="{{ rut }}" placeholder="Ej: 11111111-1" {% if rut %} disabled {% endif %} id="id_rut" class="form-control" maxlength="10" />
+                                    {% endif %}
+                                </div>
+                                <div class="col-lg-6" >
+                                    {% if rut == None %}
+                                        <div style="padding-top: 32px">
+                                            <img height="30" width="30" src="https://image.flaticon.com/icons/svg/189/189687.svg" id="reload" >
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <label>Nombre:</label>
-                                    <input type="text" name="first_name" required id="id_first_name" class="form-control" maxlength="30" />
+                                    <input type="text" name="first_name" required id="id_first_name" placeholder="Juan" {% if rut == None %} disabled {% endif %} value="{{ data.first_name }}" class="form-control" maxlength="30" />
                                 </div>
                                 <div class="col-lg-6 form-group">
                                     <label>Apellidos:</label>
-                                    <input type="text" name="last_name" maxlength="30" class="form-control" id="id_first_name" placeholder="Ej. Perez Soto" required />
+                                    <input type="text" name="last_name" maxlength="30" class="form-control" id="id_first_name"  {% if rut == None %} disabled {% endif %} value="{{ data.last_name }}" placeholder="Ej. Perez Soto" required />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <label>Fecha de nacimiento:</label>
-                                    <input type="date" name="birthdate"  class="form-control" id="id_birthdate" required />
+                                    <input type="date" name="birthdate"  class="form-control" id="id_birthdate" required {% if rut == None %} disabled {% endif %} value="{{ data.birthdate }}"/>
                                 </div>
                                 <div class="col-lg-6 form-group">
-                                    <label>Sexo:</label><br>
-                                        <input type="radio" name="gender" value="male" checked> Masculino<br>
+                                    <label>Genero:</label><br>
+                                    {% if data.rut %}
+                                        <input type="radio" name="gender" value="male"  {% if data.gender == 'male' %} checked {% endif %}> Masculino<br>
+                                        <input type="radio" name="gender" value="female"{% if data.gender == 'female' %} checked {% endif %}> Femenino
+                                    {% else %}
+                                        <input type="radio" name="gender" value="male" checked > Masculino<br>
                                         <input type="radio" name="gender" value="female"> Femenino
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <label>Direccion:</label>
-                                    <input type="text" name="address" maxlength="100"  class="form-control" id="id_address" placeholder="Ej. Santo Domingo 23, santiago" required />
+                                    <input type="text" name="address" maxlength="100"  class="form-control" id="id_address" {% if rut == None %} disabled {% endif %} value="{{ data.address }}"  placeholder="Ej. Santo Domingo 23, santiago" required />
                                 </div>
                                 <div class="col-lg-6 form-group">
                                     <label>E-mail de contacto:</label>
-                                    <input type="email" name="email" maxlength="254" class="form-control" id="id_email" placeholder="Ej. example@dominio.cl" required />
+                                    <input type="email" name="email" maxlength="254" class="form-control" id="id_email" placeholder="Ej. example@dominio.cl" {% if rut == None %} disabled {% endif %} value="{{ data.email }}"  required />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <label>Telefono de contacto:</label>
-                                    <input type="number" name="phone" maxlength="12" class="form-control" id="id_phone" placeholder="Ej. 23232343" required />
+                                    <input type="number" name="phone" maxlength="12" class="form-control" id="id_phone" placeholder="Ej. 23232343" {% if rut == None %} disabled {% endif %} value="{{ data.phone }}"  required />
                                 </div>
                                 <div class="col-lg-6 form-group">
                                     <label>Celular de contacto:</label>
-                                    <input type="number" name="cellphone" maxlength="12"class="form-control" id="id_cellphone" placeholder="Ej. 95432343" required />
+                                    <input type="number" name="cellphone" maxlength="12" class="form-control" id="id_cellphone" placeholder="Ej. 95432343" {% if rut == None %} disabled {% endif %} value="{{ data.cellphone }}"  required />
                                 </div>
                             </div>
 
                             <div class="row" style="padding-top: 3%">
-                                <input type="text" name="age" required id="id_age" value="0" class="form-control" hidden />
+                                {% if data.rut %}
+                                    <input type="text" name="age" required id="id_age"  class="form-control" value="{{ data.age }}" hidden />
+                                {% else %}
+                                    <input type="text" name="age" required id="id_age"  class="form-control" value="0" hidden />
+                                {% endif %}
                                 <div class="col-lg-12" align="right">
-                                    <input type="reset" class="btn btn-secondary" value="Limpiar" >
-                                    <span style="padding-right: 5%"></span>
-                                    <input type="submit" class="btn btn-primary" value="Continuar" >
+                                    {% if rut %}
+                                        <span style="padding-right: 5%"></span>
+                                        <input type="submit" class="btn btn-primary" value="Continuar" >
+                                    {% else %}
+
+                                        <span style="padding-right: 5%"></span>
+                                        <input type="submit" class="btn btn-primary" disabled value="Continuar" >
+                                    {%  endif %}
                                 </div>
                             </div>
                         </form>

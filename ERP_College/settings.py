@@ -106,11 +106,10 @@ if os.getenv('SETTINGS_MODE') in ['PROD']:
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
-WEBService = 'http://127.0.0.1:8888/api/'
+WEBService = 'http://127.0.0.2:8888/api/'
 
 if os.getenv('WEBService_URL') in ['True']:
     WEBService = 'https://erp-college-services.herokuapp.com/api/'
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

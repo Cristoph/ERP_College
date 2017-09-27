@@ -5,6 +5,22 @@ from  ModuleCommon.models import Attorney
 # class AttorneyForm(forms.Form):
 #    url = forms.URLField()
 
+class RutForm(forms.ModelForm):
+
+	class Meta:
+		model=Attorney
+		fields=[
+            'rut',
+        ]
+
+		labels={
+			'rut':'Rut',
+        }
+		widgets={
+            'rut' : forms.TextInput(attrs={'class':'form-control'}),
+        }
+
+
 class AttorneyForm(forms.ModelForm):
 
 	class Meta:

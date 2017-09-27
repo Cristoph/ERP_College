@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.views import View
 from django.shortcuts import redirect
-from  .forms import AttorneyForm
-import  json
-import requests
+from  .forms import AttorneyForm, RutForm
+from django.utils import timezone
+import  json, requests
 from ERP_College.settings import WEBService
 
 class AdminGrades(View):
@@ -37,18 +37,15 @@ class AdminStudents(View):
         return render(request, self.template, locals())
 
 
-class AdminAdmission(View):
+class AdminAdmissionAttorney(View):
     template = 'ModuleAdmin/admissionattorney.html'
 
     def get(self, request, *args, **kwargs):
-
-        form = AttorneyForm()
+        form = RutForm()
         self.template = 'ModuleAdmin/admissionattorney.html'
-
         return render(request, self.template, locals())
 
     def post(self, request, **kwargs):
-
         form = AttorneyForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
@@ -74,12 +71,149 @@ class AdminAdmission(View):
             form = AttorneyForm(request.POST)
         return render(request, self.template, locals())
 
+
+class AdminAdmissionAttorneySet(View):
+    template = 'ModuleAdmin/admissionattorney.html'
+    def get(self, request, *args, **kwargs):
+        rut = kwargs['rut']
+        print(rut)
+        atto = requests.get(WEBService+'attorney/'+rut)
+        atto = atto.json()
+        print(atto)
+        if atto != {'detail': 'Not found.'}:
+            data ={'rut': atto['rut'],
+                    'first_name' : atto['first_name'],
+                    'last_name' : atto['last_name'],
+                    'email': atto['email'],
+                    'birthdate': atto['birthdate'],
+                    'gender' : atto['gender'],
+                    'address': atto['address'],
+                    'phone': atto['phone'],
+                    'cellphone' : atto['cellphone'],
+                    'age': atto['age'],
+                   }
+            exist = True
+            print(data)
+        form = AttorneyForm()
+        return render(request, self.template, locals())
+
+    def post(self, request, **kwargs):
+        rut = kwargs['rut']
+        form = AttorneyForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            print(obj.birthdate.year)
+            print(timezone.now().year)
+            age=timezone.now().year - obj.birthdate.year
+            print(age)
+            date=str(obj.birthdate)
+            set_data='{"rut":"'+obj.rut+'",' \
+                    ' "first_name": "'+obj.first_name+'",' \
+                    '"last_name": "'+obj.last_name+'",' \
+                    '"gender": "'+obj.gender+'",' \
+                    '"address": "'+obj.address+'",' \
+                    '"email": "'+obj.email+'",' \
+                    '"birthdate": "'+date+'",' \
+                    '"age": '+str(age)+',' \
+                    '"phone": '+str(obj.phone)+',' \
+                    '"cellphone": '+str(obj.cellphone)+'}'
+
+            set_data=json.loads(set_data)
+
+            ll = requests.post(WEBService+'attorney/'+obj.rut+'/', data=set_data)
+            print(ll.json())
+            if ll.json()['rut'] == ['attorney with this rut already exists.']:
+                ll = requests.put(WEBService+'attorney/'+obj.rut+'/', data=set_data)
+                print(ll.json())
+            return redirect('module_admin:admission_student', rut=rut)
+        else:
+            print(form.is_valid())
+            print(form.errors)
+            form = AttorneyForm(request.POST)
+        return render(request, self.template, locals())
+
+
 class AdminAdmissionStudent(View):
     template = 'ModuleAdmin/admissionstudents.html'
 
     def get(self, request, *args, **kwargs):
-        print(kwargs['pk'])
-        self.template = 'ModuleAdmin/admissionstudents.html'
-
+        rut_a = kwargs['rut']
+        form = RutForm()
         return render(request, self.template, locals())
 
+
+class AdminAdmissionStudentSet(View):
+    template = 'ModuleAdmin/admissionstudents.html'
+    select = 'student'
+    def get(self, request, *args, **kwargs):
+        rut_a = kwargs['rut']
+        rut_s= kwargs['student']
+        print(rut_a+' - '+rut_s+' -> '+WEBService+self.select+'/'+rut_s)
+        atto = requests.get(WEBService+self.select+'/'+rut_s)
+        atto = atto.json()
+        print(atto)
+        if atto != {'detail': 'Not found.'}:
+            """
+            data ={'rut': atto['rut'],
+                    'first_name' : atto['first_name'],
+                    'last_name' : atto['last_name'],
+                    'email': atto['email'],
+                    'birthdate': atto['birthdate'],
+                    'gender' : atto['gender'],
+                    'address': atto['address'],
+                    'phone': atto['phone'],
+                    'cellphone' : atto['cellphone'],
+                    'age': atto['age'],
+                    'attorney' : atto['attorney']
+                   } """
+            data=atto
+            print(data)
+        form = AttorneyForm()
+        return render(request, self.template, locals())
+
+    def post(self, request, **kwargs):
+        rut = kwargs['rut']
+        student= kwargs['student']
+        form = AttorneyForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            age=timezone.now().year - obj.birthdate.year
+            attorney=1
+            grade=1
+            date=str(obj.birthdate)
+            set_data='{"rut":"'+obj.rut+'",' \
+                    ' "first_name": "'+obj.first_name+'",' \
+                    '"last_name": "'+obj.last_name+'",' \
+                    '"gender": "'+obj.gender+'",' \
+                    '"address": "'+obj.address+'",' \
+                    '"email": "'+obj.email+'",' \
+                    '"birthdate": "'+date+'",' \
+                    '"age": '+str(age)+',' \
+                    '"phone": '+str(obj.phone)+',' \
+                    '"cellphone": '+str(obj.cellphone)+','\
+                    '"attorney": '+str(attorney)+','\
+                    '"grade": '+str(grade)+'}'
+            print(set_data)
+            set_data=json.loads(set_data)
+            ll = requests.post(WEBService+self.select+'/'+student+'/', data=set_data)
+            print(WEBService+self.select+'/'+student+'/')
+            print(ll.json())
+            if ll.json()['rut'] == ['student with this rut already exists.']:
+                ll = requests.put(WEBService+self.select+'/'+student+'/', data=set_data)
+                print(ll.json())
+            return redirect('module_admin:admission_enrollment_set', rut=rut, student=student)
+        else:
+            print(form.is_valid())
+            print(form.errors)
+            form = AttorneyForm(request.POST)
+        return render(request, self.template, locals())
+
+
+
+
+class AdminAdmissionenRollmentSet(View):
+    template = 'ModuleAdmin/admissionenrollment.html'
+
+    def get(self, request, *args, **kwargs):
+        form = RutForm()
+        return render(request, self.template, locals())
