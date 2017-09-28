@@ -32,8 +32,11 @@ class AdminTeachers(View):
 
 class AdminStudents(View):
     template = 'ModuleAdmin/students.html'
-
+    select = 'student/'
     def get(self, request):
+        list = requests.get(WEBService+self.select)
+        data = list.json()
+        print(data)
         return render(request, self.template, locals())
 
 
@@ -92,7 +95,6 @@ class AdminAdmissionAttorneySet(View):
                     'cellphone' : atto['cellphone'],
                     'age': atto['age'],
                    }
-            exist = True
             print(data)
         form = AttorneyForm()
         return render(request, self.template, locals())

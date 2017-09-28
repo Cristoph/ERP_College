@@ -147,3 +147,27 @@ nav{
 .btn-primary:focus, .btn-primary:hover{
     background-color: #004fa5;
 }
+
+/* =========== list =========*/
+.list-div {
+    margin: 20px;
+}
+
+
+.list-div .list-header{
+    font-weight: bold;
+    border-bottom: 1px solid #596b7d;
+    padding-bottom: 15px;
+}
+.list-div .list-body{
+    border-bottom: 1px solid #71869b;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+.list-body:hover{
+    cursor: pointer;
+    background-color: rgba(166, 201, 231, 0.62);
+    border-bottom: 1px solid #71869b;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}

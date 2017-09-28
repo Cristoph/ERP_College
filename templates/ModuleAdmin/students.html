@@ -5,7 +5,56 @@
 
     <div class="col-lg-7">
         <h1>admin students</h1>
-    </div>
 
+            <div class="wall">
+
+            <div class="card">
+                <div class="card-body list-div">
+
+                    <div class="">
+                        <div class="row list-header">
+                            <div class="col-md-2" align="center">
+                                Rut
+                            </div>
+                            <div class="col-md-4" align="center">
+                                Nombre
+                            </div>
+                            <div class="col-md-4" align="center">
+                                Apellido
+                            </div>
+                            <div class="col-md-2" align="center">
+                                Curso
+                            </div>
+                        </div>
+                    </div>
+
+                        {% for student in data %}
+                        <div class="">
+                            <div class="row list-body">
+
+                                <div class="col-md-2" align="center">
+                                    {{ student.rut }}
+                                </div>
+                                <div class="col-md-4" align="center">
+                                    {{ student.first_name }}
+                                </div>
+                                <div class="col-md-4" align="center">
+                                    {{ student.last_name }}
+                                </div>
+                                <div class="col-md-2" align="center">
+                                    {{ student.grade }}°
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
 
 {% endblock content %}
