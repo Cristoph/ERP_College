@@ -209,7 +209,6 @@ class AdminAdmissionenRollment(View):
         print(form)
         grade = requests.get(WEBService+'grade/')
         grade=grade.json()
-        self.template = 'ModuleAdmin/admissionenrollment.html'
         return render(request, self.template, locals())
 
     def post(self, request, **kwargs):
