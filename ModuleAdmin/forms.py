@@ -95,7 +95,7 @@ class EnrollmentForm(forms.ModelForm):
             'monthly' : forms.TextInput(attrs={'class':'form-control'}),
             'total' : forms.TextInput(attrs={'class':'form-control'}),
             'remaining' : forms.TextInput(attrs={'class':'form-control'}),
-            'grade' : forms.Select(attrs={'class':'form-control'}),
+            'grade' : forms.TextInput(attrs={'class':'form-control'}),
             'period' : forms.Select(attrs={'class':'form-control'}),
             'student' : forms.TextInput(attrs={'class':'form-control'}),
             'payment' : forms.TextInput(attrs={'class':'form-control'}),
