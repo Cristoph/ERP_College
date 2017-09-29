@@ -243,5 +243,7 @@ class AdminAdmissionenRollment(View):
         else:
             print(form.is_valid())
             print(form.errors)
-            form = AttorneyForm(request.POST)
-        return render(request, self.template, locals())
+            form = EnrollmentForm(request.POST)
+            #return redirect('module_admin:admission_enrollment_set', rut=kwargs['rut'], student=kwargs['student'])
+
+            return render(request, self.template, locals())
