@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block content %}
+    {# siempre lg-7#}
+
+    <div class="col-lg-8" >
+            <h1>Resumen de maticula.</h1>
+            <div class="wall">
+
+        <div class="card">
+            <div class="card-body row">
+            <div class="col-lg-12" align="right">
+                <button id="print_btn" class="btn btn-primary"><i class="fa fa-print"></i> Imprimir</button>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-lg-12 hidden-md-down" align="center">
+                    <style type="text/css">
+                        .papel {
+                            -webkit-box-shadow: 00px 0px 50px #888;
+                            -moz-box-shadow: 0px 0px 50px #888;
+                            box-shadow: 0px 0px 50px #888;
+                            width: 800px;
+                            height: 1200px;
+                            padding-top: 20px;
+                            padding-bottom: 30px;
+                            padding-left: 40px;
+                            padding-right: 40px;
+                            margin-top: 20px;
+                            margin-bottom: 40px;
+                            background-color: #ffffff;
+                        }
+                    </style>
+                    <div class="papel" id="printArea" style="">
+                        <style>
+                           /* div {
+                                border: #ff000f 1px solid;
+                            }
+                            table, td, tr {
+                                border: blue 1px solid;
+                            } */
+                            .content-report{
+                                margin-top: 5px;
+                            }
+                        </style>
+                        <div class="content-report">
+                            <table WIDTH="95%">
+                                <TR><TD><img src="cumbres-300x300.png" width="100" height="100" BORDER=2 bordercolor="red"/>
+                             </TD><td width="30px"></td><td><h2 align=""><u>RESUMEN MATRÍCULA</u></h2>
+                             <TABLE align="" BORDER WIDTH="68%">
+                                <TR><TD><b>N° Fecha Matricula</b></TD><TD>matr_fechamatricula</TD>
+                                </TR>
+                            </TABLE></td></TR>
+                            </table>
+
+                            <div style="padding-top: 10px; text-align: center">
+                            <h3><u>Información del Estudiante</u></h3>
+                                </div>
+                            <TABLE BORDER=2 bordercolor="red"  WIDTH="100%">
+                                <TR><TH>Rut</TH>
+                                    <TD>pers_rut</TD><TD><b>N° Matricula</b></TD> <TD>matr_id</TD></TR>
+                                <TR><TH>Dirección</TH>
+                                    <TD>pers_direccion</TD><TD><b>Telefono</b></TD><TD>pers_telefonofijo</TD></TR>
+                                <TR><TH>Email Estudiante</TH>
+                                    <TD>pers_correoelectronico</TD> <TD><b>Fecha de Nacimiento</b></TD> <TD>pers_fechanacimiento</TD></TR>
+                                <TR><TH>Nombres</TH>
+                                    <TD>pers_nombre</TD> <TD><b>Apellidos</b></TD> <TD>pers_apellidos</TD></TR>
+                            </TABLE>
+                            <div style="padding-top: 10px; text-align: center">
+
+                            <h3><u>Información del Apoderado</u></h3>
+                            </div>
+                            <TABLE BORDER=2 bordercolor="red" WIDTH="100%">
+                                <TR><TH>Rut</TH>
+                                    <TD>pers_rut</TD><TD><b></b></TD> <TD></TD></TR>
+                                <TR><TH>Dirección</TH>
+                                    <TD>pers_direccion</TD><TD><b>Telefono</b></TD><TD>pers_telefonofijo</TD></TR>
+                                <TR><TH>Email Apoderado</TH>
+                                    <TD>pers_correoelectronico</TD> <TD><b>Fecha de Nacimiento</b></TD><TD>pers_fechanacimiento</TD></TR>
+                                <TR><TH>Nombres</TH>
+                                    <TD>pers_nombre</TD> <TD><b>Apellidos</b></TD> <TD>pers_apellidos</TD></TR>
+                            </TABLE>
+                            <div style="padding-top: 10px; text-align: center">
+                            <h3><u>Información Académica</u></h3>
+                                </div>
+                            <TABLE BORDER=2 bordercolor="red" WIDTH="100%">
+                                <TR><TH>Nivel</TH>
+                                    <TD>curs_nivel</TD><TD><b>Curso</b></TD><TD>matr_curso</TD></TR>
+                                <TR><TH>Especialidad</TH>
+                                    <TD>curs_especialidad</TD><TD><b>Periodo</b></TD><TD>matr_periodo</TD></TR>
+                            </TABLE>
+                            <div style="padding-top: 10px; text-align: center">
+                            <h3><u>Información Proceso matrícula periodo</u></h3>
+                                </div>
+                            <TABLE BORDER=2 bordercolor="red" width="100%">
+                                <TR>
+                                    <TH>Tipo Tarífa</TH> <TH>Monto</TH>
+                                </TR>
+                                <TR>
+                                    <TD>Monto Matrícula</TD> <TD>matr_montomatricula</TD>
+                                </TR>
+                                <TR>
+                                    <TD>Arancel Anual</TD> <TD>matr_arancelanual</TD>
+                                </TR>
+                                <TR>
+                                    <TD>Arancel Mensual</TD> <TD>matr_arancelmensual</TD>
+                                </TR>
+                                <TR>
+                                    <TD>Monto Abonado</TD> <TD>matr_montorecibido</TD>
+                                </TR>
+                                <TR>
+                                    <TD><b>TOTAL $</b></TD><TD>matr_montomatricula</TD>
+                                </TR>
+                            </TABLE>
+                            <div style="text-align: justify; padding-top: 20px">
+                            <h6>"El Apoderado declara estar en conocimiento que en caso que desee renunciar a dicha calidad, deberá concurrir personalmente a la institucíon a requerir la tramitación de la solicitud respectiva."
+                            <p>
+                            Los documentos que el postulante entrega al momento de matricularse en Colegio Umbrales (Licencia de Enseñanza Media, certificado de nacimiento, copia de la cédula de identidad o pasaporte y certificado de salud compatible con la carrera, en caso que corresponda), formarán parte del expediente y no se devolverán.
+                            <p>
+                            Derecho a Retracto del Artículo 3°Ter ley 19.496 de P rotección a los Derechos del Consumidor: en el caso de prestaciones de servicios educacionales de niveles superior, proporcionadas por centros de formación técnica, institutos profesionales y universidades, se faculta al alumno o quien efectúe el pago en su representación para que, dentro del plazo de 10 días contados desde aquel en que se complete la primera publicación de los resultados de las postulaciones a las universidades pertenecientes al Consejo de Rectores de las Universidades Chilenas,deje sin efecto el contrato con la respectiva institución, sin pago alguno por los servicios profesionales no prestados, salvo retención por concepto de costos de administración, un monto de la matrícula, que no podrá exceder al 1% delarancel anual del programa o carrera.
+                            <p>
+                            La institución tendrá el plazo de 10 días a contar del ejercicio del derecho de retracto, para entregar o devolver los dineros pagados o documentos de pago o de crédito entregados en respaldo de este servicio educacional.
+                            <p>
+                            Sí se hubiere otorgado mandato para hacer futuros cobros este quedará rev ocado por el sólo ministerio de la Ley. Para ejercer este derecho se requerirá ser alumno de primer año de una carrera o programa de pregrado y acreditar estar matriculado en otra entidad de
+                            educación superior.
+                            </p>
+                            </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+            </div>
+        </div>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#print_btn').click(function () {
+          $('#printArea').printThis({});
+        });
+      });
+</script>
+{% endblock content %}

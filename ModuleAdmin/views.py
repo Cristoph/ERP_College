@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.shortcuts import redirect
-from  .forms import AttorneyForm, RutForm
+from  .forms import AttorneyForm, RutForm, EnrollmentForm
 from django.utils import timezone
 import  json, requests
 from ERP_College.settings import WEBService
@@ -12,23 +12,17 @@ class AdminGrades(View):
     def get(self, request):
         return render(request, self.template, locals())
 
-
-
 class AdminSubjects(View):
     template = 'ModuleAdmin/subjects.html'
 
     def get(self, request):
         return render(request, self.template, locals())
 
-
-
 class AdminTeachers(View):
     template = 'ModuleAdmin/teachers.html'
 
     def get(self, request):
         return render(request, self.template, locals())
-
-
 
 class AdminStudents(View):
     template = 'ModuleAdmin/students.html'
@@ -38,7 +32,6 @@ class AdminStudents(View):
         data = list.json()
         print(data)
         return render(request, self.template, locals())
-
 
 class AdminAdmissionAttorney(View):
     template = 'ModuleAdmin/admissionattorney.html'
@@ -73,7 +66,6 @@ class AdminAdmissionAttorney(View):
             print(form.errors)
             form = AttorneyForm(request.POST)
         return render(request, self.template, locals())
-
 
 class AdminAdmissionAttorneySet(View):
     template = 'ModuleAdmin/admissionattorney.html'
@@ -134,7 +126,6 @@ class AdminAdmissionAttorneySet(View):
             form = AttorneyForm(request.POST)
         return render(request, self.template, locals())
 
-
 class AdminAdmissionStudent(View):
     template = 'ModuleAdmin/admissionstudents.html'
 
@@ -142,7 +133,6 @@ class AdminAdmissionStudent(View):
         rut_a = kwargs['rut']
         form = RutForm()
         return render(request, self.template, locals())
-
 
 class AdminAdmissionStudentSet(View):
     template = 'ModuleAdmin/admissionstudents.html'
@@ -210,12 +200,49 @@ class AdminAdmissionStudentSet(View):
             form = AttorneyForm(request.POST)
         return render(request, self.template, locals())
 
-
-
-
-class AdminAdmissionenRollmentSet(View):
+class AdminAdmissionenRollment(View):
     template = 'ModuleAdmin/admissionenrollment.html'
 
     def get(self, request, *args, **kwargs):
-        form = RutForm()
+        form = EnrollmentForm()
+        now = timezone.now().date()
+        print(form)
+        grade = requests.get(WEBService+'grade/')
+        grade=grade.json()
+        self.template = 'ModuleAdmin/admissionenrollment.html'
+        return render(request, self.template, locals())
+
+    def post(self, request, **kwargs):
+        form = EnrollmentForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            student=kwargs['student']
+            student = requests.get(WEBService + 'student' + '/' + student)
+            student = student.json()
+            student=str(student['id'])
+            grade = requests.get(WEBService + 'grade' + '/' + str(obj.grade.id))
+            print(WEBService + 'grade' + '/' + str(obj.grade))
+            print(grade)
+            grade = grade.json()
+            grade = str(grade['id'])
+            print(grade)
+            set_data = '{"rode":"' + str(obj.rode) + '",' \
+                    ' "tariff": "'+str(obj.tariff)+'",' \
+                    ' "total": "'+str(obj.total)+'",' \
+                    ' "monthly": "'+str(obj.monthly)+'",' \
+                    ' "remaining": "'+str(obj.remaining)+'",' \
+                    ' "grade": "'+grade+'",' \
+                    ' "period": "'+str(obj.period)+'",' \
+                    ' "student": "'+student+'",' \
+                    ' "payment": '+str(obj.payment)+'}'
+
+            set_data=json.loads(str(set_data))
+            ll=requests.post(WEBService+'enrollment/', data=set_data)
+            ll= ll.json()
+            #form.save()
+            return redirect('module_reports:enrollment-report', id=ll['id'])
+        else:
+            print(form.is_valid())
+            print(form.errors)
+            form = AttorneyForm(request.POST)
         return render(request, self.template, locals())

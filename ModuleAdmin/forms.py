@@ -1,5 +1,5 @@
 from django import forms
-from  ModuleCommon.models import Attorney
+from  ModuleCommon.models import Attorney, Enrollment
 
 
 # class AttorneyForm(forms.Form):
@@ -61,3 +61,43 @@ class AttorneyForm(forms.ModelForm):
             'phone' : forms.TextInput(attrs={'class':'form-control'}),
             'cellphone' : forms.TextInput(attrs={'class':'form-control'}),
                 }
+
+
+class EnrollmentForm(forms.ModelForm):
+
+	class Meta:
+		model=Enrollment
+		fields=[
+            'rode',
+            'tariff',
+            'monthly',
+            'total',
+            'remaining',
+            'grade',
+            'period',
+            'student',
+            'payment'
+		]
+		labels={
+			'rode':'Rode',
+			'tariff':'Tariff',
+			'monthly':'Monthly',
+			'total':'Total',
+			'remaining':'Remaining',
+            'grade': 'Grade',
+            'period': 'Period',
+            'student': 'Student',
+            'payment': 'Payment'
+		}
+		widgets={
+            'rode' : forms.TextInput(attrs={'class':'form-control'}),
+            'tariff' : forms.TextInput(attrs={'class':'form-control'}),
+            'monthly' : forms.TextInput(attrs={'class':'form-control'}),
+            'total' : forms.TextInput(attrs={'class':'form-control'}),
+            'remaining' : forms.TextInput(attrs={'class':'form-control'}),
+            'grade' : forms.Select(attrs={'class':'form-control'}),
+            'period' : forms.Select(attrs={'class':'form-control'}),
+            'student' : forms.TextInput(attrs={'class':'form-control'}),
+            'payment' : forms.TextInput(attrs={'class':'form-control'}),
+                }
+

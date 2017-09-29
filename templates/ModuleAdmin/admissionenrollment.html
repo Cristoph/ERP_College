@@ -8,9 +8,9 @@
     var suma= 0;
     var total=0;
     sumaValor = function (x) {
-        var costoMatricula = $("#matricula").val();
-        var costoArancel = $("#arancel").val();
-        var abono = $("#abono").val();
+        var costoMatricula = $("#id_rode").val();
+        var costoArancel = $("#id_tariff").val();
+        var abono = $("#id_payment").val();
         suma = parseInt(costoMatricula) + parseInt(costoArancel);
         total = parseInt(suma) - parseInt(abono);
 
@@ -19,10 +19,12 @@
         }
 
         document.getElementById('aPagar').innerHTML = "     <label>Total a pagar:</label>" +
-            "                        <input type=\"text\" name=\"\" maxlength=\"12\" value=\"$"+suma+"\" class=\"form-control\" disabled />"
+            "                        <input type=\"text\" name=\"total\" hidden value=\""+suma+"\" class=\"form-control\" />"+
+            "                        <input type=\"text\" name=\"\" maxlength=\"12\" value=\"$"+suma+"\" class=\"form-control\" disabled />";
 
         document.getElementById('difPagar').innerHTML = "     <label>Total restante:</label>" +
-            "                        <input type=\"text\" name=\"\" maxlength=\"12\" value=\"$"+total+"\" class=\"form-control\" disabled />"
+            "                        <input type=\"text\" name=\"remaining\" id=\"id_remaining\" hidden value=\""+total+"\" id=\"id_total\" class=\"form-control\" />"+
+            "                        <input type=\"text\" name=\"\"  value=\"$"+total+"\" class=\"form-control\" disabled />"
 
     };
     </script>
@@ -39,20 +41,31 @@
                 </div>
 
                 <div class="col-lg-10">
+                   <form method="POST">
+                                {% csrf_token %}
                    <h4>Datos del matricula.</h4>
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label>Fecha de matricula :</label>
-                            <input type="date" name="" maxlength="12" value="2017-09-23" class="form-control" id="" required />
+                            <h5>{{ now }}</h5>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 form-group">
+                            <label>Curso matriculado:</label>
+                            <select name="grade" id="id_grade" class="form-control custom-select" style="width: 100%">
+                                <option selected>Abrir y seleccionar curso</option>
+                                {% for foo in grade %}
 
+                                    <option value="{{ foo.id }}">{{ foo.number }}° {{ foo.latter }} - {{ foo.level }}</option>
+                                {% endfor %}
+
+
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label>Monto matricula:</label>
-                            <select class="custom-select" style="width: 100%" id="matricula" onchange="sumaValor(this);">
+                            <select class="custom-select" style="width: 100%"  name="rode" required id="id_rode" onchange="sumaValor(this);">
                                 <option selected value="0">Abrir y seleccionar el monto</option>
                                 <option value="20000">$20.000</option>
                                 <option value="25000">$25.000</option>
@@ -61,7 +74,7 @@
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Monto arancel:</label>
-                            <select class="custom-select" style="width: 100%" id="arancel" onchange="sumaValor(this);">
+                            <select class="custom-select" style="width: 100%" name="tariff" required id="id_tariff" onchange="sumaValor(this);">
                                 <option selected value="0">Abrir y seleccionar el monto</option>
                                 <option value="300000">$300000</option>
                                 <option value="350000">$350000</option>
@@ -76,13 +89,13 @@
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Monto recibido:</label>
-                            <input type="text" name="" maxlength="12" placeholder="$0"  class="form-control" id="abono" onkeyup="sumaValor(this);" required />
+                            <input type="text" name="payment" class="form-control" id="id_payment" onkeyup="sumaValor(this);" required />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 form-group" id="difPagar" >
                             <label>Total restante:</label>
-                            <input type="text" name="" maxlength="12" value="$0" class="form-control" id="" disabled />
+                            <input type="text" name="remaining" class="form-control" required id="id_remaining"  value="$0"  disabled />
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Colegio anterior:</label>
@@ -91,19 +104,12 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 form-group">
-                            <label>Curso matriculado:</label>
-                            <select class="custom-select" style="width: 100%">
-                                <option selected>Abrir y seleccionar curso</option>
-                                <option value="1">1° Basico</option>
-                                <option value="2">2° Basico</option>
-                                <option value="3">3° Basico</option>
-                                <option value="4">4° Basico</option>
-                                <option value="5">5° Basico</option>
-                            </select>
+                            <label>Monto mensualidad:</label>
+                            <input type="text" name="monthly" class="form-control" id="id_monthly"  placeholder="$0" onkeyup="sumaValor(this);" required />
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Periodo de matricula:</label>
-                            <select class="custom-select" style="width: 100%">
+                            <select name="period" class="form-control custom-select" id="id_period" style="width: 100%">
                                 <option selected>Abrir y seleccione periodo</option>
                                 <option value="1">2017</option>
                                 <option value="2">2018</option>
@@ -121,7 +127,7 @@
                             <input type="submit" class="btn btn-primary" value="Guardar" >
                         </div>
                     </div>
-
+                   </form>
                 </div>
 
 
