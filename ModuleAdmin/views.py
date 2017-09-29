@@ -219,7 +219,7 @@ class AdminAdmissionenRollment(View):
             student = requests.get(WEBService + 'student' + '/' + student)
             student = student.json()
             student=str(student['id'])
-            grade = requests.get(WEBService + 'grade' + '/' + obj.grade.id)
+            grade = requests.get(WEBService + 'grade' + '/' + str(obj.grade))
             grade = grade.json()
             grade = str(grade['id'])
             set_data = '{"rode":"' + str(obj.rode) + '",' \
