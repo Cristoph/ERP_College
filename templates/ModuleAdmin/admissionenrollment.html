@@ -51,8 +51,7 @@
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Curso matriculado:</label>
-                            <select name="grade" id="id_grade" class="form-control custom-select" style="width: 100%">
-                                <option selected>Abrir y seleccionar curso</option>
+                            <select name="grade" id="id_grade" class="form-control" style="width: 100%">
                                 {% for foo in grade %}
 
                                     <option value="{{ foo.id }}">{{ foo.number }}° {{ foo.latter }} - {{ foo.level }}</option>
