@@ -206,9 +206,6 @@ class AdminAdmissionenRollment(View):
     def get(self, request, *args, **kwargs):
         form = EnrollmentForm()
         now = timezone.now().date()
-        print(form)
-        grade = requests.get(WEBService+'grade/')
-        grade=grade.json()
         self.template = 'ModuleAdmin/admissionenrollment.html'
         return render(request, self.template, locals())
 
