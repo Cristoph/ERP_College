@@ -4,11 +4,7 @@
     {# siempre lg-7#}
 
     <script>
-    fix = function (x) {
-        var valor = $("#id_selectgrade").val();
-        //alert(valor);
-        document.getElementById('fixgrade').innerHTML = "<input hidden type=\"text\" name=\"grade\" id=\"id_grade\" value=\""+valor+"\" />"
-    };
+
     var suma= 0;
     var total=0;
     sumaValor = function (x) {
@@ -55,12 +51,10 @@
                         </div>
                         <div class="col-lg-6 form-group">
                             <label>Curso matriculado:</label>
-                            <div id="fixgrade">
-                            </div>
-                            <select name="selectgrade" id="id_selectgrade" class="form-control" style="width: 100%" onclick="fix(self);">
-                                <option>Abrir y seleccionar curso</option>
-                                {% for foo in grade %}
 
+                            <select name="grade" id="id_grade" class="custom-select" style="width: 100%">
+                                <option value="0">Abrir y seleccionar curso</option>
+                                {% for foo in grade %}
                                     <option value="{{ foo.id }}">{{ foo.number }}° {{ foo.latter }} - {{ foo.level }}</option>
                                 {% endfor %}
                             </select>
