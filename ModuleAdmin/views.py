@@ -219,12 +219,9 @@ class AdminAdmissionenRollment(View):
             student = requests.get(WEBService + 'student' + '/' + student)
             student = student.json()
             student=str(student['id'])
-            grade = requests.get(WEBService + 'grade' + '/' + str(obj.grade.id))
-            print(WEBService + 'grade' + '/' + str(obj.grade))
-            print(grade)
+            grade = requests.get(WEBService + 'grade' + '/' + obj.grade.id)
             grade = grade.json()
             grade = str(grade['id'])
-            print(grade)
             set_data = '{"rode":"' + str(obj.rode) + '",' \
                     ' "tariff": "'+str(obj.tariff)+'",' \
                     ' "total": "'+str(obj.total)+'",' \
