@@ -90,8 +90,8 @@ class Enrollment(models.Model):
     remaining= models.IntegerField(null=False)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    grade = models.ForeignKey(Grade, null=False, blank=True, on_delete=models.CASCADE)
+    grade = models.IntegerField(null=False)
     period = models.IntegerField(null=False)
-    student = models.ForeignKey(Student, null=False, blank=True, on_delete=models.CASCADE)
+    student = models.IntegerField(null=False)
     payment = models.IntegerField(null=False)
 
