@@ -170,7 +170,9 @@ class AdminAdmissionStudentSet(View):
         if form.is_valid():
             obj = form.save(commit=False)
             age=timezone.now().year - obj.birthdate.year
-            attorney=1
+            attorney = requests.get(WEBService + 'attorney' + '/' + rut)
+            attorney = attorney.json()
+            attorney=str(attorney['id'])
             grade=1
             date=str(obj.birthdate)
             set_data='{"rut":"'+obj.rut+'",' \
@@ -183,8 +185,7 @@ class AdminAdmissionStudentSet(View):
                     '"age": '+str(age)+',' \
                     '"phone": '+str(obj.phone)+',' \
                     '"cellphone": '+str(obj.cellphone)+','\
-                    '"attorney": '+str(attorney)+','\
-                    '"grade": '+str(grade)+'}'
+                    '"attorney": '+str(attorney)+'}'
             print(set_data)
             set_data=json.loads(set_data)
             ll = requests.post(WEBService+self.select+'/'+student+'/', data=set_data)

@@ -49,7 +49,7 @@
                                 <TR><TD><img src="http://www.colegiocumbres.cl/wp-content/uploads/2017/05/santa-teresa-300x300.png" width="100" height="100" BORDER=2 bordercolor="red"/>
                              </TD><td width="30px"></td><td><h2 align=""><u>RESUMEN MATRÍCULA</u></h2>
                              <TABLE align="" BORDER WIDTH="68%">
-                                <TR><TD><b>N° Fecha Matricula</b></TD><TD>matr_fechamatricula</TD>
+                                <TR><TD><b>N° Fecha Matricula</b></TD><TD>{{ date }}</TD>
                                 </TR>
                             </TABLE></td></TR>
                             </table>
@@ -58,59 +58,58 @@
                             <h3><u>Información del Estudiante</u></h3>
                                 </div>
                             <TABLE BORDER=2 bordercolor="red"  WIDTH="100%">
-                                <TR><TH>Rut</TH>
-                                    <TD>pers_rut</TD><TD><b>N° Matricula</b></TD> <TD>matr_id</TD></TR>
+                                <TR><TH width="25%">Rut</TH>
+                                    <TD width="25%">{{ student.rut }}</TD><TD width="25%"><b>N° Matricula</b></TD> <TD width="25%">{{ enrollment.id }}</TD></TR>
                                 <TR><TH>Dirección</TH>
-                                    <TD>pers_direccion</TD><TD><b>Telefono</b></TD><TD>pers_telefonofijo</TD></TR>
+                                    <TD>{{ student.address }}</TD><TD><b>Telefono</b></TD><TD>{{ student.phone }}</TD></TR>
                                 <TR><TH>Email Estudiante</TH>
-                                    <TD>pers_correoelectronico</TD> <TD><b>Fecha de Nacimiento</b></TD> <TD>pers_fechanacimiento</TD></TR>
+                                    <TD>{{ student.email }}</TD> <TD><b>Fecha de Nacimiento</b></TD> <TD>{{ student.birthdate }}</TD></TR>
                                 <TR><TH>Nombres</TH>
-                                    <TD>pers_nombre</TD> <TD><b>Apellidos</b></TD> <TD>pers_apellidos</TD></TR>
+                                    <TD>{{ student.first_name }}</TD> <TD><b>Apellidos</b></TD> <TD>{{ student.last_name }}</TD></TR>
                             </TABLE>
                             <div style="padding-top: 10px; text-align: center">
 
                             <h3><u>Información del Apoderado</u></h3>
                             </div>
                             <TABLE BORDER=2 bordercolor="red" WIDTH="100%">
-                                <TR><TH>Rut</TH>
-                                    <TD>pers_rut</TD><TD><b></b></TD> <TD></TD></TR>
+                                <TR><TH  width="25%">Rut</TH>
+                                    <TD width="25%">{{ attorney.rut }}</TD><TD width="25%"><b></b></TD> <TD width="25%"></TD></TR>
                                 <TR><TH>Dirección</TH>
-                                    <TD>pers_direccion</TD><TD><b>Telefono</b></TD><TD>pers_telefonofijo</TD></TR>
+                                    <TD>{{ attorney.address }}</TD><TD><b>Telefono</b></TD><TD>{{ attorney.phone }}</TD></TR>
                                 <TR><TH>Email Apoderado</TH>
-                                    <TD>pers_correoelectronico</TD> <TD><b>Fecha de Nacimiento</b></TD><TD>pers_fechanacimiento</TD></TR>
+                                    <TD>{{ attorney.email }}</TD> <TD><b>Fecha de Nacimiento</b></TD><TD>{{ attorney.birthdate }}</TD></TR>
                                 <TR><TH>Nombres</TH>
-                                    <TD>pers_nombre</TD> <TD><b>Apellidos</b></TD> <TD>pers_apellidos</TD></TR>
+                                    <TD>{{ attorney.first_name }}</TD> <TD><b>Apellidos</b></TD> <TD>{{ attorney.last_name }}</TD></TR>
                             </TABLE>
                             <div style="padding-top: 10px; text-align: center">
                             <h3><u>Información Académica</u></h3>
                                 </div>
                             <TABLE BORDER=2 bordercolor="red" WIDTH="100%">
                                 <TR><TH>Nivel</TH>
-                                    <TD>curs_nivel</TD><TD><b>Curso</b></TD><TD>matr_curso</TD></TR>
-                                <TR><TH>Especialidad</TH>
-                                    <TD>curs_especialidad</TD><TD><b>Periodo</b></TD><TD>matr_periodo</TD></TR>
+                                    <TD>{{ grade.level }}</TD><TD><b>Curso</b></TD><TD>{{ grade.number }}° {{ grade.latter }}</TD>
+                                <TD><b>Periodo</b></TD><TD>{{ enrollment.period }}</TD></TR>
                             </TABLE>
                             <div style="padding-top: 10px; text-align: center">
                             <h3><u>Información Proceso matrícula periodo</u></h3>
                                 </div>
                             <TABLE BORDER=2 bordercolor="red" width="100%">
                                 <TR>
-                                    <TH>Tipo Tarífa</TH> <TH>Monto</TH>
+                                    <TH>Tipo Tarífa</TH> <TH width="50%">Monto</TH>
                                 </TR>
                                 <TR>
-                                    <TD>Monto Matrícula</TD> <TD>matr_montomatricula</TD>
+                                    <TD>Monto Matrícula</TD> <TD>{{ enrollment.rode }}</TD>
                                 </TR>
                                 <TR>
-                                    <TD>Arancel Anual</TD> <TD>matr_arancelanual</TD>
+                                    <TD>Arancel Anual</TD> <TD>{{ enrollment.tariff }}</TD>
                                 </TR>
                                 <TR>
-                                    <TD>Arancel Mensual</TD> <TD>matr_arancelmensual</TD>
+                                    <TD>Arancel Mensual</TD> <TD>{{ enrollment.monthly }}</TD>
                                 </TR>
                                 <TR>
-                                    <TD>Monto Abonado</TD> <TD>matr_montorecibido</TD>
+                                    <TD>Monto Abonado</TD> <TD>{{ enrollment.payment }}</TD>
                                 </TR>
                                 <TR>
-                                    <TD><b>TOTAL $</b></TD><TD>matr_montomatricula</TD>
+                                    <TD><b>TOTAL $</b></TD><TD>{{ enrollment.total }}</TD>
                                 </TR>
                             </TABLE>
                             <div style="text-align: justify; padding-top: 20px">

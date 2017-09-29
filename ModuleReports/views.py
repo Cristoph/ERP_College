@@ -1,3 +1,5 @@
+from re import split
+
 from django.http import HttpRequest
 from django.shortcuts import render
 from ModuleCommon.models import Qualification
@@ -28,6 +30,19 @@ class EnrollmentReport(View):
     def get(self, request, *args, **kwargs):
         print(kwargs['id'])
 
-        data = requests.get(WEBService + 'enrollment' + '/' + kwargs['id'])
-        data = data.json()
+        enrollment = requests.get(WEBService + 'enrollment' + '/' + kwargs['id'])
+        enrollment = enrollment.json()
+        print(enrollment)
+        student = requests.get(WEBService + 'student_id' + '/' + str(enrollment['student']))
+        student = student.json()
+        print(student)
+        attorney = requests.get(WEBService + 'attorney_id' + '/' + str(student['attorney']))
+        attorney = attorney.json()
+        print(attorney)
+        date = split('T', enrollment['created_at'])
+        print(date[0])
+        date = date[0]
+        grade = requests.get(WEBService + 'grade' + '/' + str(enrollment['grade']))
+        grade = grade.json()
+        print(grade)
         return render(request, self.template, locals())
