@@ -4,28 +4,25 @@
 {% block content %}
     {# siempre lg-7#}
 
-    <div class="col-lg-7">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2>Reporte de notas.</h2>
-            </div>
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-3" align="right">
+    <div class="col-lg-8" >
+            <h1>Resumen de maticula.</h1>
+            <div class="wall">
+
+        <div class="card">
+            <div class="card-body row">
+            <div class="col-lg-12" align="right">
                 <button id="print_btn" class="btn btn-primary"><i class="fa fa-print"></i> Imprimir</button>
             </div>
         </div>
-    {{ ioi }}
-<!--        <div class="wall">
-            <div class="card">
-                <div class="card-body row" >   -->
+            <div class="row">
+            <div class="col-lg-12 hidden-md-down" align="center">
                     <style type="text/css">
                         .papel {
                             -webkit-box-shadow: 00px 0px 50px #888;
                             -moz-box-shadow: 0px 0px 50px #888;
                             box-shadow: 0px 0px 50px #888;
                             width: 800px;
-                            height: 1200px;
+                            height: 1000px;
                             padding-top: 20px;
                             padding-bottom: 30px;
                             padding-left: 40px;
@@ -60,7 +57,7 @@
                                                             <tbody>
                                                                 <tr>
 
-                                                                    <td align="center" rowspan="2" width="15%"><img border="0" src="" alt="Logo" width="100px">
+                                                                    <td align="center" rowspan="2" width="15%"><img border="0" src="http://www.colegiocumbres.cl/wp-content/uploads/2017/05/santa-teresa-300x300.png" alt="Logo" width="100px">
 
                                                                     </td>
                                                                     <td width="70%" align="center" valign="bottom">
@@ -203,25 +200,352 @@
                                                                         </th>
                                                                     </tr>
 
-                                                                    {% for foo in subject %}
+
                                                                     <tr>
                                                                         <td>
-                                                                            {{ foo }}
+                                                                            Matematicas
                                                                         </td>
-                                                                    {% for loo in qualifications %}
-                                                                        {% if loo.subject == foo %}
-                                                                            <td>
-                                                                            {{ loo }}
-                                                                        </td>
-                                                                        {% endif %}
 
-                                                                    {% endfor %}
                                                                         <td>
-                                                                            <b>4.9</b>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Matematicas
+                                                                        </td>
+
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+                                                                        <td>
+                                                                            5,5
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <b>5,5</b>
                                                                         </td>
                                                                     </tr>
 
-                                                                    {% endfor %}
 
                                                                     <tr bgcolor="#CEE1FB" style="border: #000000 1px solid">
                                                                         <!--<td colspan="" align="right"><B>Promedio General  :</B></td>-->
@@ -232,10 +556,10 @@
 
                                                                         </td>
                                                                         <td>
-                                                                            <b>4.9</b>
+                                                                            <b>5.5</b>
                                                                         </td>
                                                                         <td>
-                                                                            <b>4.9</b>
+                                                                            <b>5.5</b>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -252,14 +576,369 @@
                                         </tr>
                                 </tbody>
                             </table>
+                            <br>
+                            <div align="center" style="font-size: 12pt">
+                                Detalle de inasistencias <br>
+                                Intervalo considerado desde 5 de marzo - 31 de julio
+                            </div>
+                            <table width="100%" cellspacing="1" align="center" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="95%" cellspacing="1" align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <table width="100%" border="0" cellspacing="0" class=""  >
+                                                                <tbody style="border: #000000 1px solid">
+                                                                    <tr style="border: #000000 1px solid" align="center">
+                                                                        <th align="center" width="7%">
+                                                                            <b>Mes</b>
+                                                                        </th>
 
+                                                                        <th align="center" width="3%">
+                                                                            1
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            2
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            3
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            4
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            5
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            6
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            7
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            8
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            9
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            10
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            11
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            12
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            13
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            14
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            15
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            16
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            17
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            18
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            19
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            20
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            21
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            22
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            23
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            24
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            25
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            26
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            27
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            28
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            29
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            30
+                                                                        </th>
+                                                                        <th align="center" width="3%">
+                                                                            31
+                                                                        </th>
+
+                                                                    </tr>
+
+
+                                                                    <tr >
+                                                                        <td style="font-size: 10pt" width="100">
+                                                                            Marzo
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td>Ju</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Abril                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Mayo
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Junio
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>Lu</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            Julio
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+
+<!--
+                                                                    <tr bgcolor="#CEE1FB" style="border: #000000 1px solid">
+                                                                        <td>
+                                                                            <b>&nbsp;Promedio General Alumno </b>
+                                                                        </td>
+                                                                        <td colspan="10">
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>5.5</b>
+                                                                        </td>
+                                                                        <td>
+                                                                            <b>5.5</b>
+                                                                        </td>
+                                                                    </tr> -->
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" cellspacing="1" align="center" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="95%" cellspacing="1" align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+
+                                                            <table width="100%" cellspacing="1"  border="0">
+                                                                <tbody >
+                                                                    <tr bgcolor="#CEE1FB" style="border: #000000 1px solid">
+
+                                                                        <th width="33%"><b>Total inacistencias: 2</b></th>
+                                                                        <th width="33%"><b>Dias considerados: 98</b></th>
+                                                                        <th width="33%"><b>Porcentaje de inacistencias: 2%</b></th>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+                                        </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-    <!--        </div>
+            </div>
 
         </div>
-    </div> -->
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 

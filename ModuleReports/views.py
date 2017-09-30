@@ -13,6 +13,7 @@ class ReportQualifications(View):
     template = 'ModuleReports/report-qualifications.html'
 
     def get(self, request, *args, **kwargs):
+        """
         r = requests.get('http://127.0.0.1:8888/api/quali/'+kwargs['pk']+'/')
         json = r.json()
         qualifications= json
@@ -22,7 +23,8 @@ class ReportQualifications(View):
         data = {
             'qualifications': qualifications,
                 }
-        return render(request, self.template, locals(), data)
+                """
+        return render(request, self.template, locals())
 
 class EnrollmentReport(View):
     template = 'ModuleReports/enrollment.html'
