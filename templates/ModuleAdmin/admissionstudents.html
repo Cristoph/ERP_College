@@ -4,19 +4,29 @@
     {# siempre lg-7#}
 
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+
     <script type='text/javascript'>
         $(document).ready(function(){
-            $('#id_rut').blur(function(){
-                var rut= $("#id_rut").val();
-                window.location.href = '/administrator/student/'+'{{ rut_a  }}/'+rut;
+$('#id_rut').blur(function(){
+
+                var rut= $("#id_rut");
+                if(rut.val().length > 8) {
+                window.location.href = '/administrator/student/'+'{{ rut_a  }}/'+rut.val();
+return false;
+                }else {
+
+                    alert("El nombre debe tener como mínimo 9 caracteres");
+                }
+
 
             });
         });
         $(document).ready(function(){
             $('#reload').click(function(){
-                var rut= $("#id_rut").val();
-                window.location.href = '/administrator/student/'+'{{ rut_a  }}/'+rut;
-
+                var rut= $("#id_rut");
+                if(rut.val().length > 8) {
+                window.location.href = '/administrator/student/'+'{{ rut_a  }}/'+rut.val();
+                }
             });
         });
     </script>

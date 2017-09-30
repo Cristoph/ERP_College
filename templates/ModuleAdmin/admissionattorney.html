@@ -5,16 +5,33 @@
 
     <script type='text/javascript'>
         $(document).ready(function(){
+
             $('#id_rut').blur(function(){
-                var rut= $("#id_rut").val();
-                window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut;
+
+                var rut= $("#id_rut");
+                if(rut.val().length > 8) {
+                    window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut.val();
+                     return false;
+                }else {
+
+                    alert("El nombre debe tener como mínimo 9 caracteres");
+                }
+
 
             });
         });
         $(document).ready(function(){
             $('#reload').click(function(){
-                var rut= $("#id_rut").val();
-                window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut;
+                var rut= $("#id_rut");
+                if(rut.val().length > 8) {
+                    window.location.href = "{% url 'module_admin:admission_attorney' %}"+rut.val();
+                     return false;
+                }else {
+
+                    alert("El nombre debe tener como mínimo 9 caracteres");
+                }
+
+
 
             });
         });
@@ -37,12 +54,12 @@
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <label>Rut :</label>
-                                    <input type="text" name="rut" value="{{ rut }}" hidden required class="form-control" maxlength="10" />
+                                    <input type="text" name="rut" value="{{ rut }}" hidden required class="form-control" minlength="9" maxlength="10" />
 
                                     {% if data.rut %}
                                         <input type="text" name="rut" value="{{ data.rut }}" disabled required id="id_rut" class="form-control" maxlength="10" />
                                     {% else %}
-                                        <input type="text" name="rut" value="{{ rut }}" placeholder="Ej: 11111111-1" {% if rut %} disabled {% endif %} id="id_rut" class="form-control" maxlength="10" />
+                                        <input type="text" name="rut" value="{{ rut }}" maxlength="10" minlength="9" placeholder="Ej: 11111111-1" {% if rut %} disabled {% endif %} id="id_rut" class="form-control" />
                                     {% endif %}
                                 </div>
                                 <div class="col-lg-2" align="center">
