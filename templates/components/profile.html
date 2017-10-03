@@ -11,7 +11,7 @@
 
         <p class="card-text">{{ user.groups.all.0.name }}</p>
 {#        TODO: si es alumno el curos si es profesor el ramo que ejerce??#}
-        <p class="card-text">texto a definir</p>
+        <p class="card-text">{{ request.user }}</p>
 
   </div>
 </div>

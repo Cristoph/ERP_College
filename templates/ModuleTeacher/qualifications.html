@@ -1,10 +1,138 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {# siempre lg-7#}
+
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('#reload').click(function(){
+                var grade= $("#grade");
+                var subject= $("#subject");
+                    window.location.href = "{% url 'module_teacher:qualifications' %}"+grade.val()+'/'+ subject.val()+'/True';
+
+            });
+        });
+    </script>
 
     <div class="col-lg-7">
-        <h1>teacher qualifications</h1>
+        <h1>Calificaciones</h1>
+            <div class="wall">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h6>
+                                Seleccione Curso
+                            </h6>
+                            <select class="form-control" id="grade">
+                                {% for foo in grade %}
+                                    <option value="{{ foo.id }}">{{ foo.number }}° {{ foo.name }} - {{ foo.latter }}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <h6>
+                                Seleccione Asignatura
+                            </h6>
+                            <select class="form-control" id="subject">
+                                {% for foo in subject %}
+                                    <option value="{{ foo.id }}">{{ foo.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <h6>Notas</h6>
+
+                            <input type="radio" name="gender" value="male" checked > Ver notas<br>
+                            <input type="radio" name="gender" value="female"> Agregar/Editar notas
+
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 20px">
+                        <div class="col-lg-12" align="right">
+                            <button class="btn btn-primary" id="reload">Continuar</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div align="center">
+                    <h4>{{ subject_.name }} - {{ grade_.number }}° {{ grade_.later }} - {{ grade_.level }}</h4>
+                </div>
+                <div class="card-body list-div">
+
+                    <div class="">
+                        <div class="row list-header" style="margin-left: 20px">
+                            <div class="col-md-2" align="left">
+                                Rut
+                            </div>
+                            <div class="col-md-8" align="left">
+                                Nombre
+                            </div>
+                        </div>
+                    </div>
+
+            {% for foo in student %}
+
+                            <div class="list-body" align="center">
+                                <div class="row">
+                                    <div class="col-lg-2" align="left" style="margin-left: 10px">
+                                        {{ foo.rut }}
+                                    </div>
+                                    <div class="col-lg-7" align="left">
+                                       {{ foo.name }}
+                                    </div>
+                                    <div class="col-lg-1" align="right" style="margin-left: 24px">
+                                       <b>PS</b>
+                                    </div>
+                                    <div class="col-lg-1" align="right">
+                                       <b>PG</b>
+                                    </div>
+                                </div>
+                                <div class="row" align="center" style=" padding-top: 5px ">
+                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px;margin-left: 25px">
+                                        {{ foo.1 }}
+                                    </div>
+                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.2 }}
+                                    </div>
+                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.3 }}
+                                    </div>
+                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.4 }}
+                                    </div>
+                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.5 }}
+                                    </div>
+                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.6 }}
+                                    </div>
+                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.7 }}
+                                    </div>
+                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.8 }}
+                                    </div>
+                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.9 }}
+                                    </div>
+                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                        {{ foo.10 }}
+                                    </div>
+                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                         <b>{{ foo.ps }}</b>
+                                    </div>
+                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px; height: 25px">
+                                         <b>{{ foo.ps }}</b>
+                                    </div>
+                                </div>
+                            </div>
+
+                {% endfor %}
+                    </div>
+            </div>
+
+        </div>
     </div>
 
 

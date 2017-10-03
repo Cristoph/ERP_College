@@ -73,6 +73,8 @@ class AdminAdmissionAttorneySet(View):
         rut = kwargs['rut']
         print(rut)
         atto = requests.get(WEBService+'attorney/'+rut)
+
+        print(atto)
         atto = atto.json()
         print(atto)
         if atto != {'detail': 'Not found.'}:
@@ -119,6 +121,7 @@ class AdminAdmissionAttorneySet(View):
             if ll.json()['rut'] == ['attorney with this rut already exists.']:
                 ll = requests.put(WEBService+'attorney/'+obj.rut+'/', data=set_data)
                 print(ll.json())
+            obj= None
             return redirect('module_admin:admission_student', rut=rut)
         else:
             print(form.is_valid())

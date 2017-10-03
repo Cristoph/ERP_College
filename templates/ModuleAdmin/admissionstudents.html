@@ -32,7 +32,7 @@ return false;
     </script>
 
     <div class="col-lg-7">
-        <h1>admin admission</h1>
+        <h1>Matricula.</h1>
             <div class="wall">
 
             <div class="card">
@@ -85,7 +85,7 @@ return false;
                                         <label>Fecha de nacimiento:</label>
                                         <input type="date" name="birthdate"  class="form-control" id="id_birthdate" required {% if rut_a == None %} disabled {% endif %} value="{{ data.birthdate }}"/>
                                     </div>
-                                    <div class="col-lg-2 form-group">
+                                    <div class="col-lg-6 form-group">
                                         <label>Genero:</label><br>
                                         {% if data.rut %}
                                             <input type="radio" name="gender" value="male"  {% if data.gender == 'male' %} checked {% endif %}> Masculino<br>
