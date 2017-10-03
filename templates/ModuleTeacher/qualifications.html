@@ -7,7 +7,7 @@
             $('#reload').click(function(){
                 var grade= $("#grade");
                 var subject= $("#subject");
-                    window.location.href = "{% url 'module_teacher:qualifications' %}"+grade.val()+'/'+ subject.val()+'/True';
+                    window.location.href = "{% url 'module_teacher:qualifications' %}"+grade.val()+'/'+ subject.val()+'/False';
 
             });
         });
@@ -43,8 +43,8 @@
                         <div class="col-lg-4">
                             <h6>Notas</h6>
 
-                            <input type="radio" name="gender" value="male" checked > Ver notas<br>
-                            <input type="radio" name="gender" value="female"> Agregar/Editar notas
+                            <input type="radio" value="view" checked > Ver notas<br>
+                            <input type="radio" value="edit"> Agregar/Editar notas
 
                         </div>
                     </div>
@@ -55,6 +55,7 @@
 
                     </div>
                 </div>
+            {% if student %}
                 <div align="center">
                     <h4>{{ subject_.name }} - {{ grade_.number }}° {{ grade_.later }} - {{ grade_.level }}</h4>
                 </div>
@@ -130,6 +131,7 @@
 
                 {% endfor %}
                     </div>
+            {% endif %}
             </div>
 
         </div>
