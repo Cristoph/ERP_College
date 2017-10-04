@@ -23,7 +23,7 @@
                                 Apellido
                             </div>
                             <div class="col-md-2" align="center">
-                                Curso
+                                Rep. Notas
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                     {{ student.last_name }}
                                 </div>
                                 <div class="col-md-2" align="center">
-                                    {{ student.grade }}°
+                                    <a href="{% url 'module_reports:report-qualifications'  student.id  %}">Reporte</a>
                                 </div>
                             </div>
                         </div>
