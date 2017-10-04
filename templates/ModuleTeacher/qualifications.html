@@ -34,7 +34,7 @@
 
             {% endfor %}
         //alert(complet);
-        document.getElementById('id_input').innerHTML ='<input hidden type="text" name="obj1" value="'+complet+'" id="id_obj1" maxlength="250" />\n'+complet;
+        document.getElementById('id_input').innerHTML ='<input hidden type="text" name="obj1" value="'+complet+'" id="id_obj1" maxlength="250" />\n';
         document.getElementById("form").submit();
 
     }
@@ -206,7 +206,7 @@
 
                     {% endfor %}
                     {% if edit %}
-                        <div id="id_input" style="display: none"></div>
+                        <div id="id_input"></div>
                         <div class="row" style="padding-top: 20px">
                             <div class="col-lg-12" align="right">
                                 <a class="btn btn-primary" style="cursor: pointer;color: #ffffff; " onclick="completed()">Guardar</a>
