@@ -86,21 +86,21 @@
                                                                         <b>Alumno:&nbsp;</b>
                                                                     </td>
                                                                     <td>
-                                                                        <b>Cristopher Gonzalez</b>
+                                                                        <b>{{ student.first_name }} {{ last_name }}</b>
                                                                     </td>
                                                                     <td>
                                                                         <b>Run:&nbsp;</b>
                                                                     </td>
-                                                                    <td>11.111.111-1</td>
+                                                                    <td>1{{ student.rut }}</td>
 
                                                                 </tr>
 
-                                                                <tr>
+                                                               <tr>
                                                                     <td>
                                                                         <b>Profesor Jefe: </b>
                                                                     </td>
                                                                     <td>
-                                                                        Octavio Cubillos
+                                                                        {{ teacher.first_name }} {{ teacher.last_name }}
                                                                     </td>
                                                                     <td>
 
@@ -115,14 +115,14 @@
                                                                         <b>Curso:</b>
                                                                     </td>
                                                                     <td>
-                                                                        Sexto Año - A
+                                                                        {{ grade.name }} Año - {{ grade.latter }}
                                                                     </td>
 
                                                                     <td>
                                                                         <b>Matrícula:</b>
                                                                     </td>
                                                                     <td>
-                                                                        118
+                                                                        {{ enrollment.id }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -130,7 +130,7 @@
                                                                         Año Escolar:
                                                                     </td>
                                                                     <td colspan="3" >
-                                                                        <b>2017</b>
+                                                                        <b>{{ enrollment.period }}</b>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -200,352 +200,54 @@
                                                                         </th>
                                                                     </tr>
 
+                                                                    {% for foo in qualis %}
+
 
                                                                     <tr>
                                                                         <td>
-                                                                            Matematicas
+                                                                            {{ foo.name }}
                                                                         </td>
 
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.1 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.2 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.3 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.4 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.5 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.6 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.7 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.8 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.9 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
+                                                                            {{ foo.10 }}
                                                                         </td>
                                                                         <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
+                                                                            {{ foo.ps }}
                                                                         </td>
 
                                                                         <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
-                                                                        </td>
-
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
-                                                                        </td>
-
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
-                                                                        </td>
-
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
-                                                                        </td>
-
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
-                                                                        </td>
-
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            Matematicas
-                                                                        </td>
-
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-                                                                        <td>
-                                                                            5,5
-                                                                        </td>
-
-                                                                        <td>
-                                                                            <b>5,5</b>
+                                                                            <b>{{ foo.pf }}</b>
                                                                         </td>
                                                                     </tr>
 
+                                                                    {% endfor %}
 
                                                                     <tr bgcolor="#CEE1FB" style="border: #000000 1px solid">
                                                                         <!--<td colspan="" align="right"><B>Promedio General  :</B></td>-->
@@ -556,10 +258,10 @@
 
                                                                         </td>
                                                                         <td>
-                                                                            <b>5.5</b>
+                                                                            <b>{{ su }}</b>
                                                                         </td>
                                                                         <td>
-                                                                            <b>5.5</b>
+                                                                            <b>{{ su }}</b>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
