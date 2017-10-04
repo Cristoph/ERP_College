@@ -1,0 +1,98 @@
+from django import forms
+from  .models import Trans
+
+class TransForm(forms.ModelForm):
+
+    class Meta:
+        model=Trans
+        fields = (
+            'obj1',
+            'obj2',
+            'obj3',
+            'obj4',
+            'obj5',
+            'obj6',
+            'obj7',
+            'obj8',
+            'obj9',
+            'obj10',
+            'obj11',
+            'obj12',
+            'obj13',
+            'obj14',
+            'obj15',
+            'obj16',
+            'obj17',
+            'obj18',
+            'obj19',
+            'obj20',
+        )
+
+        """
+        fields=[
+            'obj1',
+            'obj2',
+            'obj3',
+            'obj4',
+            'obj5',
+            'obj6',
+            'obj7',
+            'obj8',
+            'obj9',
+            'obj10',
+            'obj11',
+            'obj12',
+            'obj13',
+            'obj14',
+            'obj15',
+            'obj16',
+            'obj17',
+            'obj18',
+            'obj19',
+            'obj20',
+        ]
+    
+        labels={
+            'obj1':'Obj1',
+            'obj2':'Obj2',
+            'obj3':'Obj3',
+            'obj4':'Obj4',
+            'obj5':'Obj5',
+            'obj6':'Obj6',
+            'obj7':'Obj7',
+            'obj8':'Obj8',
+            'obj9':'Obj9',
+            'obj10':'Obj10',
+            'obj11':'Obj11',
+            'obj12':'Obj12',
+            'obj13':'Obj13',
+            'obj14':'Obj14',
+            'obj15':'Obj15',
+            'obj16':'Obj16',
+            'obj17':'Obj17',
+            'obj18':'Obj18',
+            'obj19':'Obj19',
+            'obj20':'Obj20',
+        }
+        widgets={
+            'obj1': forms.TextInput(required=False),
+            'obj2': forms.TextInput(),
+            'obj3': forms.TextInput(),
+            'obj4': forms.TextInput(),
+            'obj5': forms.TextInput(),
+            'obj6': forms.TextInput(),
+            'obj7': forms.TextInput(),
+            'obj8': forms.TextInput(),
+            'obj9': forms.TextInput(),
+            'obj10': forms.TextInput(),
+            'obj11': forms.TextInput(),
+            'obj12': forms.TextInput(),
+            'obj13': forms.TextInput(),
+            'obj14': forms.TextInput(),
+            'obj15': forms.TextInput(),
+            'obj16': forms.TextInput(),
+            'obj17': forms.TextInput(),
+            'obj18': forms.TextInput(),
+            'obj19': forms.TextInput(),
+            'obj20': forms.TextInput(),
+        }"""

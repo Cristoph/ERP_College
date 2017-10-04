@@ -156,7 +156,7 @@ nav{
 
 .list-div .list-header{
     font-weight: bold;
-    border-bottom: 1px solid #596b7d;
+   /* border-bottom: 1px solid #596b7d; */
     padding-bottom: 15px;
 }
 .list-div .list-body{

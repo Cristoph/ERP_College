@@ -3,138 +3,220 @@
 {% block content %}
 
     <script type='text/javascript'>
-        $(document).ready(function(){
-            $('#reload').click(function(){
-                var grade= $("#grade");
-                var subject= $("#subject");
-                    window.location.href = "{% url 'module_teacher:qualifications' %}"+grade.val()+'/'+ subject.val()+'/False';
+    function select(){
+            var radio = document.getElementById('radio').checked;
+            var grade= $("#grade");
+            var subject= $("#subject");
+            var edit = 'False';
+            if (radio) {
+                edit = 'True';
+            }
+            window.location.href = "{% url 'module_teacher:qualifications' %}"+grade.val()+'/'+ subject.val()+'/'+edit;
+        }
 
-            });
-        });
+        function completed(){
+            var complet = "";
+            var i = 1;
+            {% for foo in student %}
+                var id = {{ foo.id }};
+
+                complet = complet.concat('&' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_1").val()+'-,-position-: 1, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_2").val()+'-,-position-: 2, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_3").val()+'-,-position-: 3, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_4").val()+'-,-position-: 4, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_5").val()+'-,-position-: 5, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_6").val()+'-,-position-: 6, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_7").val()+'-,-position-: 7, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_8").val()+'-,-position-: 8, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_9").val()+'-,-position-: 9, -period-: 1}' +
+                    '!{-student-:{{ foo.id }},-teacher_subject-: {{ teacher_subject.id }},-value-: -'+$("#id_{{ foo.id }}_10").val()+'-,-position-: 10, -period-: 1}' +
+                    '');
+
+            {% endfor %}
+        //alert(complet);
+        document.getElementById('id_input').innerHTML ='\n' +
+                        '<input hidden type="text" name="obj1" value="'+complet+'" id="id_obj1" maxlength="250" />\n'+complet;
+        document.getElementById("form").submit();
+    }
+
     </script>
 
     <div class="col-lg-7">
+
+        <form method="POST" name="form" id="form">
+            {% csrf_token %}
         <h1>Calificaciones</h1>
             <div class="wall">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <h6>
-                                Seleccione Curso
-                            </h6>
-                            <select class="form-control" id="grade">
-                                {% for foo in grade %}
-                                    <option value="{{ foo.id }}">{{ foo.number }}° {{ foo.name }} - {{ foo.latter }}</option>
-                                {% endfor %}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h6>
+                                    Seleccione Curso
+                                        {{ selgrade }}
+                                </h6>
+                                <select class="form-control" id="grade">
+                                    {% for foo in grade %}
+                                        <option value="{{ foo.id }}">{{ foo.number }}° {{ foo.name }} - {{ foo.latter }}</option>
+                                    {% endfor %}
 
-                            </select>
-                        </div>
-                        <div class="col-lg-4">
-                            <h6>
-                                Seleccione Asignatura
-                            </h6>
-                            <select class="form-control" id="subject">
-                                {% for foo in subject %}
-                                    <option value="{{ foo.id }}">{{ foo.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-lg-4">
-                            <h6>Notas</h6>
-
-                            <input type="radio" value="view" checked > Ver notas<br>
-                            <input type="radio" value="edit"> Agregar/Editar notas
-
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 20px">
-                        <div class="col-lg-12" align="right">
-                            <button class="btn btn-primary" id="reload">Continuar</button>
-                        </div>
-
-                    </div>
-                </div>
-            {% if student %}
-                <div align="center">
-                    <h4>{{ subject_.name }} - {{ grade_.number }}° {{ grade_.later }} - {{ grade_.level }}</h4>
-                </div>
-                <div class="card-body list-div">
-
-                    <div class="">
-                        <div class="row list-header" style="margin-left: 20px">
-                            <div class="col-md-2" align="left">
-                                Rut
+                                </select>
                             </div>
-                            <div class="col-md-8" align="left">
-                                Nombre
+                            <div class="col-lg-4">
+                                <h6>
+                                    Seleccione Asignatura
+                                </h6>
+                                <select class="form-control" id="subject">
+                                    {% for foo in subject %}
+                                        <option value="{{ foo.id }}">{{ foo.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <h6>Notas</h6>
+                                            <input type="radio" name="gender" value="view" checked > Ver notas<br>
+                                            <input type="radio" name="gender" id="radio" value="edit"> Editar/Agregar notas
                             </div>
                         </div>
+                        <div class="row" style="padding-top: 20px">
+                            <div class="col-lg-12" align="right">
+                                <a class="btn btn-primary" onclick="select()" style="color: #ffffffcursor: pointer;">Continuar</a>
+                            </div>
+
+                        </div>
                     </div>
+                {% if student %}
+                    <div align="center">
+                        <h4>{{ subject_.name }} - {{ grade_.number }}° {{ grade_.later }} - {{ grade_.level }}</h4>
+                    </div>
+                    <div class="card-body list-div">
 
-            {% for foo in student %}
-
-                            <div class="list-body" align="center">
-                                <div class="row">
-                                    <div class="col-lg-2" align="left" style="margin-left: 10px">
-                                        {{ foo.rut }}
-                                    </div>
-                                    <div class="col-lg-7" align="left">
-                                       {{ foo.name }}
-                                    </div>
-                                    <div class="col-lg-1" align="right" style="margin-left: 24px">
-                                       <b>PS</b>
-                                    </div>
-                                    <div class="col-lg-1" align="right">
-                                       <b>PG</b>
-                                    </div>
+                        <div class="">
+                            <div class="row list-header" style="margin-left: 20px">
+                                <div class="col-md-2" align="left">
+                                    Rut
                                 </div>
-                                <div class="row" align="center" style=" padding-top: 5px ">
-                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px;margin-left: 25px">
-                                        {{ foo.1 }}
-                                    </div>
-                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.2 }}
-                                    </div>
-                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.3 }}
-                                    </div>
-                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.4 }}
-                                    </div>
-                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.5 }}
-                                    </div>
-                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.6 }}
-                                    </div>
-                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.7 }}
-                                    </div>
-                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.8 }}
-                                    </div>
-                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.9 }}
-                                    </div>
-                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                        {{ foo.10 }}
-                                    </div>
-                                    <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
-                                         <b>{{ foo.ps }}</b>
-                                    </div>
-                                    <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px; height: 25px">
-                                         <b>{{ foo.ps }}</b>
-                                    </div>
+                                <div class="col-md-8" align="left">
+                                    Nombre
                                 </div>
                             </div>
+                        </div>
 
-                {% endfor %}
-                    </div>
-            {% endif %}
+                {% for foo in student %}
+
+                                <div class="list-body" align="center">
+                                    <div class="row">
+                                        <div class="col-lg-2" align="left" style="margin-left: 10px">
+                                            {{ foo.rut }}
+                                        </div>
+                                        <div class="col-lg-7" align="left">
+                                           {{ foo.name }}
+                                        </div>
+                                        <div class="col-lg-1" align="right" style="margin-left: 31px">
+                                           <b>PS</b>
+                                        </div>
+                                        <div class="col-lg-1" align="center">
+                                           <b>PG</b>
+                                        </div>
+                                    </div>
+                                    {% if edit %}
+
+                                    <div class="row" align="left" style=" padding-top: 5px; text-align: center; margin-left: 0px">
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input size="5" id="id_{{ foo.id }}_1" value="{{ foo.1 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_2" value="{{ foo.2 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_3" value="{{ foo.3 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_4" value="{{ foo.4 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_5" value="{{ foo.5 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_6" value="{{ foo.6 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_7" value="{{ foo.7 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_8" value="{{ foo.8 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_9" value="{{ foo.9 }}" style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
+                                            <input  size="5" id="id_{{ foo.id }}_10" value="{{ foo.10 }}"   style="text-align:center; " />
+                                        </div>
+                                        <div class="col-lg-1"  style="margin-left:15px; border: solid 1px #818187; margin-right: 1px; max-width: 55px; height: 27px">
+                                             <b>{{ foo.ps }}</b>
+                                        </div>
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px; height: 27px">
+                                             <b>{{ foo.ps }}</b>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="row" align="center" style=" padding-top: 5px; vertical-align: middle ">
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px;margin-left: 25px">
+                                            {{ foo.1 }}
+                                        </div>
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.2 }}
+                                        </div>
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.3 }}
+                                        </div>
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.4 }}
+                                        </div>
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.5 }}
+                                        </div>
+                                        <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.6 }}
+                                        </div>
+                                        <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.7 }}
+                                        </div>
+                                        <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.8 }}
+                                        </div>
+                                        <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.9 }}
+                                        </div>
+                                        <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 1px; max-width: 55px">
+                                            {{ foo.10 }}
+                                        </div>
+                                        <div class="col-lg-1"  style="border: solid 1px #818187; margin-right: 10px; max-width: 55px; height: 27px">
+                                             <b>{{ foo.ps }}</b>
+                                        </div>
+                                        <div class="col-lg-1" style="border: solid 1px #818187; margin-right: 4px; max-width: 55px; height: 27px">
+                                             <b>{{ foo.ps }}</b>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                    {% endfor %}
+                        <div class="row" style="padding-top: 20px">
+                            <div class="col-lg-12" align="right">
+                                <a class="btn btn-primary" style="cursor: pointer;color: #ffffff; " onclick="completed()">Guardar</a>
+                            </div>
+
+                        </div>
+                        </div>
+
+                {% endif %}
+                </div>
+
             </div>
-
-        </div>
+            <div style="height: 20px" id="id_input"></div>
+        </form>
     </div>
 
 

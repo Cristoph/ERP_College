@@ -117,10 +117,8 @@ class AdminAdmissionAttorneySet(View):
             set_data=json.loads(set_data)
 
             ll = requests.post(WEBService+'attorney/'+obj.rut+'/', data=set_data)
-            print(ll.json())
             if ll.json()['rut'] == ['attorney with this rut already exists.']:
                 ll = requests.put(WEBService+'attorney/'+obj.rut+'/', data=set_data)
-                print(ll.json())
             obj= None
             return redirect('module_admin:admission_student', rut=rut)
         else:
