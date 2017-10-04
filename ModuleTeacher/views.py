@@ -55,6 +55,7 @@ class TeacherQualificationsSet(View):
         quali = requests.get(WEBService + 'quali_grade/' + kwargs['grade']+'/'+kwargs['subject'])
         quali=quali.json()
 
+        selsubject= int(kwargs['subject'])
         selgrade = int(kwargs['grade'])
         student = self.studentQuialificatuions(student_, quali)
         return render(request, self.template, locals())
@@ -131,15 +132,11 @@ class TeacherQualificationsSet(View):
                             edit='False')
         return render(request, self.template, locals())
 
-
-
 class TeacherAssistances(View):
     template = 'ModuleTeacher/assistances.html'
 
     def get(self, request):
         return render(request, self.template, locals())
-
-
 
 class TeacherAnnotations(View):
     template = 'ModuleTeacher/annotations.html'

@@ -4,6 +4,7 @@
 {% url 'module_admin:subjects' as subjects_url %}
 {% url 'module_admin:teachers' as teachers_url %}
 {% url 'module_admin:students' as students_url %}
+{% url 'module_teacher:qualifications' as students_url %}
 {% url 'module_admin:admission' 'students' as admission_students_url %}
 {% url 'module_admin:admission_attorney' as admission_attorney_url  %}
 {% url 'module_admin:admission' 'enrollment' as admission_enrollment_url %}
@@ -49,7 +50,21 @@
         </a>
     </div>
 
-    <div class="card card-menu {% if request.path == teachers_url %}active{% endif %}">
+
+    <div class="card card-menu {% if request.path == qualifications_url %}active{% endif %}">
+        <a href="{% url 'module_teacher:qualifications' %}">
+            <div class="card-body row">
+                <div class="col-lg-3">
+                    <i class="material-icons md-2x">assignment</i>
+                </div>
+                <div class="col-lg-9">
+                    <p><strong>Notas</strong></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--<div class="card card-menu {% if request.path == teachers_url %}active{% endif %}">
         <a href="{% url 'module_admin:teachers' %}">
             <div class="card-body row">
                 <div class="col-lg-3">
@@ -60,7 +75,7 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div> -->
 
     <div class="card card-menu {% if request.path == students_url %}active{% endif %}">
         <a href="{% url 'module_admin:students' %}">

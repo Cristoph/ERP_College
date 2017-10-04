@@ -3,7 +3,7 @@
 {% block content %}
 
     <script type='text/javascript'>
-    function select(){
+        function select(){
             var radio = document.getElementById('radio').checked;
             var grade= $("#grade");
             var subject= $("#subject");
@@ -13,7 +13,6 @@
             }
             window.location.href = "{% url 'module_teacher:qualifications' %}"+grade.val()+'/'+ subject.val()+'/'+edit;
         }
-
         function completed(){
             var complet = "";
             var i = 1;
@@ -35,11 +34,14 @@
 
             {% endfor %}
         //alert(complet);
-        document.getElementById('id_input').innerHTML ='\n' +
-                        '<input hidden type="text" name="obj1" value="'+complet+'" id="id_obj1" maxlength="250" />\n'+complet;
+        document.getElementById('id_input').innerHTML ='<input hidden type="text" name="obj1" value="'+complet+'" id="id_obj1" maxlength="250" />\n'+complet;
         document.getElementById("form").submit();
+
     }
 
+        function edit() {
+            window.location.href = "{% url 'module_teacher:qualifications' %}"+'{{ selgrade }}/{{ selsubject }}/True';
+        }
     </script>
 
     <div class="col-lg-7">
@@ -81,7 +83,7 @@
                         </div>
                         <div class="row" style="padding-top: 20px">
                             <div class="col-lg-12" align="right">
-                                <a class="btn btn-primary" onclick="select()" style="color: #ffffffcursor: pointer;">Continuar</a>
+                                <a class="btn btn-primary" onclick="select()" style="cursor: pointer;color: #ffffff; ">Filtrar</a>
                             </div>
 
                         </div>
@@ -124,34 +126,34 @@
 
                                     <div class="row" align="left" style=" padding-top: 5px; text-align: center; margin-left: 0px">
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input size="5" id="id_{{ foo.id }}_1" value="{{ foo.1 }}" style="text-align:center; " />
+                                            <input size="5" id="id_{{ foo.id }}_1" placeholder="Nota 1" value="{{ foo.1 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_2" value="{{ foo.2 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_2" placeholder="Nota 2" value="{{ foo.2 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_3" value="{{ foo.3 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_3" placeholder="Nota 3" value="{{ foo.3 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_4" value="{{ foo.4 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_4" placeholder="Nota 4" value="{{ foo.4 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_5" value="{{ foo.5 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_5" placeholder="Nota 5" value="{{ foo.5 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_6" value="{{ foo.6 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_6" placeholder="Nota 6" value="{{ foo.6 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_7" value="{{ foo.7 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_7" placeholder="Nota 7" value="{{ foo.7 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_8" value="{{ foo.8 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_8" placeholder="Nota 8" value="{{ foo.8 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_9" value="{{ foo.9 }}" style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_9" placeholder="Nota 9" value="{{ foo.9 }}" style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1" style="; margin-right: 1px; max-width: 55px;">
-                                            <input  size="5" id="id_{{ foo.id }}_10" value="{{ foo.10 }}"   style="text-align:center; " />
+                                            <input  size="5" id="id_{{ foo.id }}_10" placeholder="Nota 10" value="{{ foo.10 }}"   style="text-align:center; " />
                                         </div>
                                         <div class="col-lg-1"  style="margin-left:15px; border: solid 1px #818187; margin-right: 1px; max-width: 55px; height: 27px">
                                              <b>{{ foo.ps }}</b>
@@ -203,19 +205,29 @@
                                 </div>
 
                     {% endfor %}
+                    {% if edit %}
+                        <div id="id_input"></div>
                         <div class="row" style="padding-top: 20px">
                             <div class="col-lg-12" align="right">
                                 <a class="btn btn-primary" style="cursor: pointer;color: #ffffff; " onclick="completed()">Guardar</a>
                             </div>
 
                         </div>
+                        {% else %}
+
+                        <div class="row" style="padding-top: 20px">
+                            <div class="col-lg-12" align="right">
+                                <a class="btn btn-primary" style="cursor: pointer;color: #ffffff; " onclick="edit()">editar</a>
+                            </div>
+
+                        </div>
+                        {% endif %}
                         </div>
 
                 {% endif %}
                 </div>
 
             </div>
-            <div style="height: 20px" id="id_input"></div>
         </form>
     </div>
 
